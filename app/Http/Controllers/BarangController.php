@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BarangController extends Controller
 {
@@ -38,4 +39,5 @@ class BarangController extends Controller
         $barang->delete();
         return redirect('/barang')->with('sukses', 'Data Berhasil Dihapus');
     }
+    
 }
