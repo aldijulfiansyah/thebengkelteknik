@@ -2,8 +2,8 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="/" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="/barang" class=""><i class="lnr lnr-lighter"></i> <span>Barang</span></a></li>
+                <li><a class="nav-link {{ Request::is('') ? 'active' : '' }}" aria-current="page" href="/"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a class="nav-link {{ Request::is('barang') ? 'active' : '' }}" aria-current="page" href="/barang"><i class="lnr lnr-lighter"></i> <span>Barang</span></a></li>
                 
             </ul>
         </nav>
