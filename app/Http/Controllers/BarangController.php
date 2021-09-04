@@ -39,4 +39,5 @@ class BarangController extends Controller
         $barang->delete();
         return redirect('/barang')->with('sukses', 'Data Berhasil Dihapus');
     }
+    
 }
