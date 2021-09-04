@@ -15,7 +15,7 @@
                               <input name="nama_barang" type="text" class="form-control" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama" value="{{ $barang->nama_barang }}">
                             </div>
                             <div class="form-group">
-                              <label for="" class="form-label">Jumlah</label>
+                              <label for="" class="form-label">Quantity</label>
                               <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah" value="{{ $barang->jumlah }}">
                             </div>
                             <div class="form-group">
@@ -25,6 +25,10 @@
                             <div class="form-group">
                               <label for="" class="form-label">Agent</label>
                               <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ $barang->nama_client }}">
+                            </div>
+                            <div class="form-group">
+                              <label for="" class="form-label">Barang Keluar</label>
+                              <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Jumlah" value="{{ $barang->barang_keluar }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                             <a name="Cancel" id="" class="btn btn-primary" href="/barang" role="button">Cancel</a>

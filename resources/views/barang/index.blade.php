@@ -26,6 +26,8 @@
                                           <th scope="col">Quantity</th>
                                           <th scope="col">Perusahaan</th>
                                           <th scope="col">Agent</th>
+                                          <th scope="col">Barang Keluar</th>
+                                          <th scope="col">Sisa Barang Keluar</th>
                                           <th scope="col">Do</th>
                                           <th scope="col"></th>
                                         </tr>
@@ -38,6 +40,8 @@
                                             <td scope="row">{{ $barang->jumlah }}</td>
                                             <td scope="row">{{ $barang->client_pt }}</td>
                                             <td scope="row">{{ $barang->nama_client }}</td>
+                                            <td scope="row">{{ $barang->barang_keluar }}</td>
+                                            <td scope="row">{{ $barang->jumlah - $barang->barang_keluar }}</td>
                                             <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
                                             <td scope="row"><a href="/barang/{{ $barang->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Delete</a></td>
                                         </tr>
@@ -53,10 +57,7 @@
     </div>
 
     
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+ 
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -76,8 +77,8 @@
                   <input name="nama_barang" type="text" class="form-control" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama">
                 </div>
                 <div class="mb-3">
-                  <label for="" class="form-label">Jumlah</label>
-                  <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah">
+                  <label for="" class="form-label">Quantity</label>
+                  <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan">
                 </div>
                 <div class="mb-3">
                   <label for="" class="form-label">Perusahaan</label>
@@ -86,6 +87,10 @@
                 <div class="mb-3">
                   <label for="" class="form-label">Agent</label>
                   <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent">
+                </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">Barang Keluar</label>
+                  <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Barang Keluar">
                 </div>
         </div>
         <div class="modal-footer">
@@ -110,13 +115,13 @@
         } ],
         "order": [[ 1, 'asc' ]]
     } );
-    t.on( 'draw.dt', function () {
-    var PageInfo = $('#example').DataTable().page.info();
-         t.column(0, { page: 'current' }).nodes().each( function (cell, i) {
-            cell.innerHTML = i + 1 + PageInfo.start;
+ 
+    t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
         } );
-    } );
-    });
+    } ).draw();
+} );
   </script>
 @endpush
 
