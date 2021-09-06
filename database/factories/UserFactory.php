@@ -24,6 +24,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'tgl_lahir' => $this->faker->date(),
             'email' => $this->faker->unique()->safeEmail(),
             'username' => $this->faker->unique()->userName(),
             'email_verified_at' => now(),

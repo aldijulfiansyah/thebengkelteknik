@@ -22,6 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
+Route::get('/profil', function () {
+    return view('profil.index', [
+        'title' => 'Profil'
+    ]);
+})->middleware('auth');
+
+
+
 Route::get('/barang', [BarangController::class, 'index'])->middleware('auth');
 Route::post('/barang/create', [BarangController::class, 'create']);
 Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);

@@ -24,6 +24,15 @@
                                 </div>
                                 @enderror
 								<div class="form-group">
+									<label for="tgl_lahir" class="control-label sr-only">Tanggal Lahir</label>
+									<input type="date" class="form-control @error('tgl_lahir')is-invalid @enderror" id="tgl_lahir" name="tgl_lahir" placeholder="Birth Date" required value="{{ old('tgl_lahir') }}">
+								</div>
+								@error('tgl_lahir')
+                                <div class="invalid-feedback mb-2">
+                                    <p class="text-danger text-left">{{ $message }}</p>
+                                </div>
+                                @enderror
+								<div class="form-group">
 									<label for="email" class="control-label sr-only">Email</label>
 									<input type="email" class="form-control @error('email')is-invalid @enderror" id="email" name="email" placeholder="Ex : example@gmailcom" required value="{{ old('email') }}">
 								</div>
@@ -50,6 +59,7 @@
                                     <p class="text-danger text-left">{{ $message }}</p>
                                 </div>
                                 @enderror
+								
     
 								<button type="submit" class="btn btn-primary btn-lg btn-block">REGISTER</button>
 								
