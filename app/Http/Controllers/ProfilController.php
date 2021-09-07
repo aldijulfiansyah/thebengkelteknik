@@ -32,7 +32,7 @@ class ProfilController extends Controller
             'name'=> 'required|max:255',
             'tgl_lahir' => 'required',
             'username' => 'required|min:3|max:255|unique:users',
-            'email'=> 'required|email:dns'
+            'email'=> 'required|email:dns|unique:users'
         ]
     );
 
