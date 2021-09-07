@@ -47,54 +47,49 @@
 										<h4 class="heading">About</h4>
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
-									@foreach ($data_user as $user)
+									<!-- @foreach ($data_user as $user)
 									<div class="text-center"><a href="/profil/{{ $user->id }}/edit" class="btn btn-primary">Edit Profile</a></div>
-									@endforeach
+									@endforeach -->
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>
 							<!-- END LEFT COLUMN -->
 							<!-- RIGHT COLUMN -->
 							<div class="profile-right">
-								<h4 class="heading">Samuel's Awards</h4>
+								<h4 class="heading">Profile User</h4>
 								<!-- AWARDS -->
-								<div class="awards">
-									<div class="row">
-										<div class="col-md-3 col-sm-6">
-											<div class="award-item">
-												<div class="hexagon">
-													<span class="lnr lnr-sun award-icon"></span>
-												</div>
-												<span>Most Bright Idea</span>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-6">
-											<div class="award-item">
-												<div class="hexagon">
-													<span class="lnr lnr-clock award-icon"></span>
-												</div>
-												<span>Most On-Time</span>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-6">
-											<div class="award-item">
-												<div class="hexagon">
-													<span class="lnr lnr-magic-wand award-icon"></span>
-												</div>
-												<span>Problem Solver</span>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-6">
-											<div class="award-item">
-												<div class="hexagon">
-													<span class="lnr lnr-heart award-icon"></span>
-												</div>
-												<span>Most Loved</span>
-											</div>
-										</div>
+								<form action="/profil/{{ $user->id }}/update" method="POST">
+								@csrf
+									<div class="form-group">
+									<label for="" class="form-label">Name</label>
+									<input name="name" type="text" class="form-control @error('name') is-invalid @enderror"  name="name" id="name" aria-describedby="textHelp" placeholder="Name" value="{{ old ('name',$user->name) }}">
 									</div>
-									<div class="text-center"><a href="#" class="btn btn-default">See all awards</a></div>
-								</div>
+									@error('name')
+									<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
+									<div class="form-group">
+									<label for="" class="form-label">Birthdate</label>
+									<input name="tgl_lahir" type="date" class="form-control @error('tgl_lahir') is-invalid @enderror" id="tgl_lahir" aria-describedby="textHelp" placeholder="BirthDate" value="{{ old ('tgl_lahir',$user->tgl_lahir) }}">
+									</div>
+									@error('tgl_lahir')
+									<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
+									<div class="form-group">
+									<label for="" class="form-label">Username</label>
+									<input name="username" type="text" class="form-control @error('username') is-invalid @enderror" id="username" aria-describedby="textHelp" placeholder="Username" value="{{ old ('username',$user->username) }}">
+									</div>
+									@error('username')
+									<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
+									<div class="form-group">
+									<label for="" class="form-label">Email</label>
+									<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="textHelp" placeholder="Ex : example@gamil.com" value="{{ old ('email',$user->email) }}">
+									</div>
+									@error('email')
+									<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
+								<button type="submit" class="btn btn-primary">Update</button>
+							</form>
 								<!-- END AWARDS -->
 								<!-- TABBED CONTENT -->
 								<div class="custom-tabs-line tabs-line-bottom left-aligned">
