@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+@include('sweetalert::alert')
 <div class="main">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
@@ -46,7 +47,9 @@
 										<h4 class="heading">About</h4>
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
-									<!-- <div class="text-center"><a href="#" class="btn btn-primary">Edit Profile</a></div> -->
+									@foreach ($data_user as $user)
+									<div class="text-center"><a href="/profil/{{ $user->id }}/edit" class="btn btn-primary">Edit Profile</a></div>
+									@endforeach
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>
