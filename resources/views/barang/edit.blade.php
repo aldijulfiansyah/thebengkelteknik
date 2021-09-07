@@ -10,11 +10,19 @@
                     <div class="panel-body">
                         <form action="/barang/{{ $barang->id }}/update" method="POST">
                             @csrf
+                            
                             <div class="form-group">
                               <label for="" class="form-label">Nama Barang</label>
                               <input name="nama_barang" type="text" class="form-control @error('nama_barang') is-invalid @enderror"  name="nama_barang" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama Barang" value="{{ old ('nama_barang',$barang->nama_barang) }}">
                             </div>
                             @error('nama_barang')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                              <label for="" class="form-label">Spesifikasi</label>
+                              <textarea type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" aria-describedby="textHelp" placeholder="Masukan Spesifikasi Barang"> {{ old('deskripsi',$barang->deskripsi) }}</textarea>
+                            </div>
+                            @error('deskripsi')
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">

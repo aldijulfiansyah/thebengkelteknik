@@ -25,6 +25,7 @@
                                         <tr>
                                           <th>No</th>
                                           <th scope="col">Nama Barang</th>
+                                          <th scope="col">Spesifikasi</th>
                                           <th scope="col">Quantity</th>
                                           <th scope="col">Perusahaan</th>
                                           <th scope="col">Agent</th>
@@ -39,6 +40,7 @@
                                         <tr>
                                             <td></td>
                                             <td scope="row">{{ $barang->nama_barang }}</td>
+                                            <td scope="row">{{ $barang->deskripsi }}</td>
                                             <td scope="row">{{ $barang->jumlah }}</td>
                                             <td scope="row">{{ $barang->client_pt }}</td>
                                             <td scope="row">{{ $barang->nama_client }}</td>
@@ -87,6 +89,13 @@
                     <span class="help-block">{{ $errors->first('nama_barang') }}</span>
                   @endif
                 </div>
+                <div class="form-group {{ $errors->has('deskripsi') ? 'has-error' : '' }}">
+                  <label for="" class="form-label">Spesifikasi</label>
+                  <textarea type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="textHelp" placeholder="Masukan Spesifikasi Barang"> {{ old('deskripsi') }}</textarea>
+                  @if($errors->has('deskripsi'))
+                    <span class="help-block">{{ $errors->first('deskripsi') }}</span>
+                  @endif
+                </div>
                 <div class="form-group {{ $errors->has('jumlah') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Quantity</label>
                   <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan" value="{{ old('jumlah') }}">
@@ -115,6 +124,7 @@
                     <span class="help-block">{{ $errors->first('barang_keluar') }}</span>
                   @endif
                 </div>
+                
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -142,6 +152,9 @@
     $('#exampleModal').modal('show');
 @enderror
 @error ('barang_keluar')
+    $('#exampleModal').modal('show');
+@enderror
+@error ('deskripsi')
     $('#exampleModal').modal('show');
 @enderror
 
