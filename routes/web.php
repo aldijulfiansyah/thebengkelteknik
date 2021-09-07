@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +20,16 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
-
-Route::get('/profil', function () {
-    return view('profil.index', [
-        'title' => 'Profil'
+    return view('welcome', [
+        'title' => 'Home'
     ]);
 })->middleware('auth');
 
 
+
+Route::get('/profil', [ProfilController::class, 'index'])->middleware('auth');
+Route::get('/profil/{id}/edit', [ProfilController::class, 'edit']);
+Route::post('/profil/{id}/update', [ProfilController::class, 'update']);
 
 Route::get('/barang', [BarangController::class, 'index'])->middleware('auth');
 Route::post('/barang/create', [BarangController::class, 'create']);
