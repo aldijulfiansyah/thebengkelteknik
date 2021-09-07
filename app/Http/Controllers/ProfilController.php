@@ -31,7 +31,7 @@ class ProfilController extends Controller
         $this->validate($request,[
             'name'=> 'required|max:255',
             'tgl_lahir' => 'required',
-            'username' => 'required|min:3|max:255',
+            'username' => 'required|min:3|max:255|unique:users',
             'email'=> 'required|email:dns'
         ]
     );
