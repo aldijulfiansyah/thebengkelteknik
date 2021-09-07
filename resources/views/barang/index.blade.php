@@ -118,7 +118,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
         </form>
         </div>
       </div>
@@ -169,7 +169,7 @@
 $('.delete').click(function(){
     var barangid = $(this).attr('data-id');
     var barangnama = $(this).attr('data-nama');
-
+    
   swal({
   title: "Yakin?",
   text: "Anda akan menghapus data barang dengan nama "+barangnama+" ",
@@ -180,7 +180,7 @@ $('.delete').click(function(){
 .then((willDelete) => {
   if (willDelete) {
     window.location = "/barang/"+barangid+"/delete"
-    swal("Data berhasil dihapus", {
+    swal("Data dengan nama "+barangnama+" berhasil dihapus", {
       icon: "success",
     });
   } else {

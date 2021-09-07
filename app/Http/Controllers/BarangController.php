@@ -21,7 +21,7 @@ class BarangController extends Controller
             'nama_barang'=>'required|min:4',
             'jumlah'=>'required',
             'client_pt'=>'required|min:5',
-            'nama_client'=>'required|min:5',
+            'nama_client'=>'required|min:4',
             'barang_keluar'=>'required',
         ],
         [
@@ -32,7 +32,7 @@ class BarangController extends Controller
             'client_pt.required' => 'Nama perusahaan harus diisi !',
             'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
             'nama_client.required' => 'Nama agent perusahaan harus diisi !',
-            'nama_client.min' => 'Nama agent minimal 5 karakter !'
+            'nama_client.min' => 'Nama agent minimal 4 karakter !'
         ]
     );
 
@@ -56,7 +56,7 @@ class BarangController extends Controller
             'nama_barang'=>'required|min:4',
             'jumlah'=>'required',
             'client_pt'=>'required|min:5',
-            'nama_client'=>'required|min:5',
+            'nama_client'=>'required|min:4',
             'barang_keluar'=>'required',
         ],
         [
@@ -67,7 +67,7 @@ class BarangController extends Controller
             'client_pt.required' => 'Nama perusahaan harus diisi !',
             'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
             'nama_client.required' => 'Nama agent perusahaan harus diisi !',
-            'nama_client.min' => 'Nama agent minimal 5 karakter !'
+            'nama_client.min' => 'Nama agent minimal 4 karakter !'
         ]
     
     );
