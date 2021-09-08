@@ -38,7 +38,7 @@ class ProfilController extends Controller
 
         $user = User::find($id);
         $user->update($request->all());
-        Alert::success('Diupdate', 'Data Berhasil Diupdate');
+        Alert::success('Diupdate', 'Profil Berhasil Diupdate');
         return redirect('/profil');
 
     }
@@ -57,10 +57,11 @@ class ProfilController extends Controller
             $current_user->update([
                 'password'=>bcrypt($request->new_password)
             ]);
-
+            Alert::success('Diupdate', 'Password Berhasil Diupdate');
             return redirect()->back()->with('success','Password successfully updated.');
 
         }else{
+            Alert::error('Gagal Update', 'Password Gagal Diupdate');
             return redirect()->back()->with('error','Old password wrong.');
         }
         
