@@ -99,7 +99,7 @@
 								@csrf
 									<div class="form-group">
 									<label for="" class="form-label">Old Password</label>
-									<input name="old_password" data-toggle="password" type="text" class="form-control @error('old_password') is-invalid @enderror"  name="old_password" id="old_password" aria-describedby="textHelp" placeholder="Isi password lama">
+									<input name="old_password" data-toggle="password" type="password" class="form-control @error('old_password') is-invalid @enderror"  name="old_password" id="old_password" aria-describedby="textHelp" placeholder="Isi password lama">
 									<span class="input-group-text"><i class="fa fa-eye"> Show Password</i></span>
 									</div>
 									@error('old_password')
@@ -107,14 +107,14 @@
 									@enderror
 									<div class="form-group">
 									<label for="" class="form-label">New Password</label>
-									<input name="new_password" type="text" class="form-control @error('new_password') is-invalid @enderror" name="new_password" id="new_password" aria-describedby="textHelp" placeholder="Isi password baru">
+									<input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" id="new_password" aria-describedby="textHelp" placeholder="Isi password baru">
 									</div>
 									@error('new_password')
 									<div class="alert alert-danger">{{ $message }}</div>
 									@enderror
 									<div class="form-group">
 									<label for="" class="form-label">Confirm Password</label>
-									<input name="confirm_pass" type="text" class="form-control @error('confirm_pass') is-invalid @enderror" name="confirm_pass" id="confirm_pass" aria-describedby="textHelp" placeholder="konfirmasi password">
+									<input name="confirm_pass" type="password" class="form-control @error('confirm_pass') is-invalid @enderror" name="confirm_pass" id="confirm_pass" aria-describedby="textHelp" placeholder="konfirmasi password">
 									</div>
 									@error('confirm_pass')
 									<div class="alert alert-danger">{{ $message }}</div>
