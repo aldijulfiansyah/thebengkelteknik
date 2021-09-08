@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="{{ asset('admin/assets/vendor/linearicons/style.css') }}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/main.css') }}">
-	<link rel="stylesheet" href="/vendor/showpass/showpass.css">
 	
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/demo.css')}}">

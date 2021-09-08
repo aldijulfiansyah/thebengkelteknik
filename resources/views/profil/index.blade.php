@@ -97,11 +97,6 @@
 								<h4 class="heading"><b>User Security</b></h4>
 								<form action="/profil/{{ $user->id }}/update-pass" method="POST">
 								@csrf
-									{{-- <div class="form-group">
-									<label for="" class="form-label">Old Password</label>
-									<input name="old_password" data-toggle="password" type="password" class="form-control @error('old_password') is-invalid @enderror"  name="old_password" id="old_password" aria-describedby="textHelp" placeholder="Isi password lama">
-									<span class="input-group-text"><i class="fa fa-eye"> Show Password</i></span>
-									</div> --}}
 									<div class="form-group">
 										<label for="" class="form-label">Old Password</label>
 										<div class="input-group" id="show_hide_password">
