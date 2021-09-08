@@ -58,11 +58,11 @@ class ProfilController extends Controller
                 'password'=>bcrypt($request->new_password)
             ]);
             Alert::success('Diupdate', 'Password Berhasil Diupdate');
-            return redirect()->back()->with('success','Password successfully updated.');
+            return redirect('/profil');
 
         }else{
             Alert::error('Gagal Update', 'Password Gagal Diupdate');
-            return redirect()->back()->with('error','Old password wrong.');
+            return redirect('/profil');
         }
         
     }

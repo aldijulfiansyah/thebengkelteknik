@@ -43,7 +43,8 @@
 								<div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
 									<label for="password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									<input type="password" data-toggle="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									<span class="input-group-text"><i class="fa fa-eye"> Show Password</i></span>
 								</div>
 								
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>

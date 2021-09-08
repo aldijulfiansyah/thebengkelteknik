@@ -99,7 +99,8 @@
 								@csrf
 									<div class="form-group">
 									<label for="" class="form-label">Old Password</label>
-									<input name="old_password" type="text" class="form-control @error('old_password') is-invalid @enderror"  name="old_password" id="old_password" aria-describedby="textHelp" placeholder="Isi password lama">
+									<input name="old_password" data-toggle="password" type="text" class="form-control @error('old_password') is-invalid @enderror"  name="old_password" id="old_password" aria-describedby="textHelp" placeholder="Isi password lama">
+									<span class="input-group-text"><i class="fa fa-eye"> Show Password</i></span>
 									</div>
 									@error('old_password')
 									<div class="alert alert-danger">{{ $message }}</div>
