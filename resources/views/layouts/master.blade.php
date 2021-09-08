@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{{ asset('admin/assets/vendor/linearicons/style.css') }}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/main.css') }}">
+	<link rel="stylesheet" href="/vendor/showpass/showpass.css">
 	
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/demo.css')}}">
@@ -58,6 +59,7 @@
 	<script src="{{ asset('admin/assets/scripts/klorofil-common.js')}}"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="/vendor/showpass/bootstrap-show-password.min.js"></script>
+	<script src="/vendor/showpass/showpass.js"></script>
 	@stack('scripts')
 
 

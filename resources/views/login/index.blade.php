@@ -40,11 +40,16 @@
 								</div>
                                 
                                 <br>
+								
 								<div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+									<span class="input-group-addon"><i class="fa fa-key"></i></span>
 									<label for="password" class="control-label sr-only">Password</label>
-									<input type="password" data-toggle="password" class="form-control" id="password" name="password" placeholder="Password" required>
-									<span class="input-group-text"><i class="fa fa-eye"> Show Password</i></span>
+									<div class="input-group" id="show_hide_password">
+										<input type="password" data-toggle="password" class="form-control" id="password" name="password" placeholder="Password" required>
+										<div class="input-group-addon">
+										<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+									  	</div>
+									</div>
 								</div>
 								
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
