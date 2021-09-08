@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfilController;
+use App\Models\Penjualan;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,7 @@ Route::get('/', function () {
 
 
 
+
 Route::get('/profil', [ProfilController::class, 'index'])->middleware('auth');
 Route::get('/profil/{id}/edit', [ProfilController::class, 'edit']);
 Route::post('/profil/{id}/update', [ProfilController::class, 'update']);
@@ -36,6 +39,10 @@ Route::post('/barang/create', [BarangController::class, 'create']);
 Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::post('/barang/{id}/update', [BarangController::class, 'update']);
 Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
+
+Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware('auth');
+Route::post('/penjualan/create', [PenjualanController::class, 'create']);
+
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
