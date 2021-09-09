@@ -14,7 +14,7 @@
 								<div class="profile-header">
 									<div class="overlay"></div>
 									<div class="profile-main">
-										<img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
+										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
 										<h3 class="name">{{ auth()->user()->name }}</h3>
 										<span class="online-status status-available">Available</span>
 									</div>
@@ -47,9 +47,9 @@
 										<h4 class="heading">About</h4>
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
-									<!-- @foreach ($data_user as $user)
-									<div class="text-center"><a href="/profil/{{ $user->id }}/edit" class="btn btn-primary">Edit Profile</a></div>
-									@endforeach -->
+									@foreach ($data_user as $user)
+									{{-- <div class="text-center"><a href="" class="btn btn-primary" type="file">Changed Avatar</a></div> --}}
+									@endforeach
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>

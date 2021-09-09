@@ -16,20 +16,41 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request) {
-        
-        $validateData = $request->validate([
+
+        // $validateData = $request->validate([
+        //     'name'=> 'required|max:255',
+        //     'tgl_lahir' => 'required',
+        //     'username' => 'required|min:3|max:255|unique:users',
+        //     'avatar' => 'required|mimes:jpg,jpeg,png',
+        //     'email' => 'required|email:dns|unique:users',
+        //     'password'=> 'required|min:5|max:255'
+        // ]);
+
+        $this->validate($request, [
             'name'=> 'required|max:255',
             'tgl_lahir' => 'required',
             'username' => 'required|min:3|max:255|unique:users',
-            'email'=> 'required|email:dns|unique:users',
+            'avatar' => 'required|mimes:jpg,jpeg,png',
+            'email' => 'required|email:dns|unique:users',
             'password'=> 'required|min:5|max:255'
         ]);
 
-        
         //$validateData['password'] =bcrypt($validateData['password']);
-        $validateData['password'] = Hash::make($validateData['password']);
+        // $validateData['password'] = Hash::make($validateData['password']);
 
-        User::create($validateData);
+        $file_name = $request->avatar->getClientOriginalName();
+        $avatar = $request->avatar->storeAs('thumbnail', $file_name);
+
+        // User::create($validateData);
+
+        User::create([
+            'name'=> $request->name,
+            'tgl_lahir' => $request->tgl_lahir,
+            'username' => $request->username,
+            'avatar' => $avatar,
+            'email' => $request->email,
+            'password'=> Hash::make($request->password)
+        ]);
 
         return redirect('/login')->with('success', "Registrasi Berhasil! Silahkan Sign In");
     }
