@@ -22,6 +22,7 @@ class BarangController extends Controller
         $this->validate($request,[
             'nama_barang'=>'required|min:4',
             'jumlah'=>'required',
+            'harga'=>'required',
             'client_pt'=>'required|min:5',
             'nama_client'=>'required|regex:/^[a-zA-Z ]+$/|min:4',
             'barang_keluar'=>'required',
@@ -30,6 +31,7 @@ class BarangController extends Controller
             'nama_barang.required' => 'Nama barang harus diisi !',
             'nama_barang.min' => 'Nama barang minimal 4 karakter !',
             'jumlah.required' => 'Jumlah barang harus diisi !',
+            'harga.required' => 'Harga barang/pcs harus diisi !',
             'barang_keluar.required' => 'Jumlah barang keluar harus diisi!,...jika tidak ada maka barang keluar isi dengan nilai kosong ( 0 ) !',
             'client_pt.required' => 'Nama perusahaan harus diisi !',
             'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
@@ -61,6 +63,7 @@ class BarangController extends Controller
         $this->validate($request,[
             'nama_barang'=>'required|min:4',
             'jumlah'=>'required',
+            'harga'=>'required',
             'client_pt'=>'required|min:5',
             'nama_client'=>'required|regex:/^[a-zA-Z ]+$/|min:4',
             'barang_keluar'=>'required',
@@ -69,6 +72,7 @@ class BarangController extends Controller
             'nama_barang.required' => 'Nama barang harus diisi !',
             'nama_barang.min' => 'Nama barang minimal 4 karakter !',
             'jumlah.required' => 'Jumlah barang harus diisi !',
+            'harga.required' => 'Harga barang/pcs harus diisi !',
             'barang_keluar.required' => 'Jumlah barang keluar harus diisi!,...jika tidak ada maka barang keluar isi dengan nilai kosong ( 0 ) !',
             'client_pt.required' => 'Nama perusahaan harus diisi !',
             'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
