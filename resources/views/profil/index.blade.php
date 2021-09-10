@@ -48,7 +48,14 @@
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
 									@foreach ($data_user as $user)
-									{{-- <div class="text-center"><a href="" class="btn btn-primary" type="file">Changed Avatar</a></div> --}}
+									
+									{{-- <form action="/profil/{{ $user->id }}/update-avatar" method="post">
+									@csrf
+										
+									</form> --}}
+									<input type="file" name="avatar" id="avatar" style="opacity:0;height:1px;display:none">
+									<div class="text-center"><button class="btn btn-primary" id="change_avatar">Changed Avatar</button></div>
+									
 									@endforeach
 								</div>
 								<!-- END PROFILE DETAIL -->
@@ -142,3 +149,32 @@
 
 
 @endsection
+
+@push('scripts')
+<script>
+
+	$(document).on('click','#change_avatar', function(){
+      $('#avatar').click();
+    });
+
+	$('#avatar').ijaboCropTool({
+          preview : '',
+          setRatio:1,
+          allowedExtensions: ['jpg', 'jpeg','png'],
+          buttonsText:['CROP','QUIT'],
+          buttonsColor:['#30bf7d','#ee5155', -15],
+          processUrl:'{{ route("avatarUpdate") }}',
+		  withCSRF:['_token', '{{ csrf_token() }}'],
+          onSuccess:function(message, element, status){
+             alert(message);
+          },
+          onError:function(message, element, status){
+            alert(message);
+          }
+       });
+	
+</script>
+
+
+
+@endpush

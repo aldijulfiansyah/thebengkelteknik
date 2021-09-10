@@ -34,6 +34,7 @@ Route::get('/profil', [ProfilController::class, 'index'])->middleware('auth');
 Route::get('/profil/{id}/edit', [ProfilController::class, 'edit']);
 Route::post('/profil/{id}/update', [ProfilController::class, 'update']);
 Route::post('/profil/{id}/update-pass', [ProfilController::class, 'update_password']);
+Route::post('/profil/update-avatar', [ProfilController::class, 'update_avatar'])->name('avatarUpdate');
 
 Route::get('/barang', [BarangController::class, 'index'])->middleware('auth');
 Route::post('/barang/create', [BarangController::class, 'create']);

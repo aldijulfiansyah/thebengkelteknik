@@ -61,9 +61,41 @@ class ProfilController extends Controller
             return redirect('/profil');
 
         }else{
-            Alert::error('Gagal Update', 'Password Gagal Diupdate');
+            Alert::error('Gagal Update', 'Password User Salah');
             return redirect('/profil');
         }
-        
     }
+
+    public function update_avatar(Request $request)
+    {
+        $path = '/storage/thumbnail/';
+        $file = $request->file('avatar');
+        $new_image_name = '/thumbnail/'.date('Ymd').uniqid().'.jpg';
+        $upload = $file->move(public_path($path), $new_image_name);
+        if( !$upload ){
+            return response()->json(['status'=>0,'msg'=>'Something went wrong, upload new picture failed.']);
+        }else{
+
+            //Get Old picture
+            $oldPicture = User::find(Auth::user()->id)->getAttributes()['avatar'];
+
+            if( $oldPicture != '' ){
+                if( \File::exists(public_path($path.$oldPicture))){
+                    \File::delete(public_path($path.$oldPicture));
+                }
+            }
+
+            //Update DB
+            $update = User::find(Auth::user()->id)->update(['avatar'=>$new_image_name]);
+
+            if( !$upload ){
+                return response()->json(['status'=>0,'msg'=>'Something went wrong, updating picture in db failed.']);
+                
+            }else{
+                return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully']);
+                
+            }
+        }
+    }
+  
 }

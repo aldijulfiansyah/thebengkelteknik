@@ -51,8 +51,8 @@
                                 </div>
                                 @enderror
 								<div class="form-group">
-									<label for="avatar" class="control-label sr-only">Avatar</label>
 									<input type="file" class="form-control @error('avatar')is-invalid @enderror" id="avatar" name="avatar" placeholder="Avatar"  value="{{ old('avatar') }}">
+									<label for="avatar" class="control-label sr-only">Avatar</label>
 								</div>
                                 @error('avatar')
                                 <div class="invalid-feedback mb-2">
@@ -61,7 +61,12 @@
                                 @enderror
 								<div class="form-group">
 									<label for="password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control @error('password')is-invalid @enderror" id="password" name="password" placeholder="Password" >
+									<div class="input-group" id="show_hide_password">
+										<input type="password" data-toggle="password" class="form-control @error('password')is-invalid @enderror" id="password" name="password" placeholder="Password" required>
+										<div class="input-group-addon">
+										<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+									  	</div>
+									</div>
 								</div>
                                 @error('password')
                                 <div class="invalid-feedback mb-2">
