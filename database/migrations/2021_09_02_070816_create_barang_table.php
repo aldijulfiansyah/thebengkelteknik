@@ -17,6 +17,7 @@ class CreateBarangTable extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->bigInteger('jumlah');
+            $table->double('harga');
             $table->string('client_pt');
             $table->string('nama_client');
             $table->bigInteger('barang_keluar');

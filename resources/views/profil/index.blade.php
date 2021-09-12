@@ -14,7 +14,7 @@
 								<div class="profile-header">
 									<div class="overlay"></div>
 									<div class="profile-main">
-										<img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
+										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
 										<h3 class="name">{{ auth()->user()->name }}</h3>
 										<span class="online-status status-available">Available</span>
 									</div>
@@ -47,9 +47,16 @@
 										<h4 class="heading">About</h4>
 										<p>Interactively fashion excellent information after distinctive outsourcing.</p>
 									</div>
-									<!-- @foreach ($data_user as $user)
-									<div class="text-center"><a href="/profil/{{ $user->id }}/edit" class="btn btn-primary">Edit Profile</a></div>
-									@endforeach -->
+									@foreach ($data_user as $user)
+									
+									{{-- <form action="/profil/{{ $user->id }}/update-avatar" method="post">
+									@csrf
+										
+									</form> --}}
+									<input type="file" name="avatar" id="avatar" style="opacity:0;height:1px;display:none">
+									<div class="text-center"><button class="btn btn-primary" id="change_avatar">Changed Avatar</button></div>
+									
+									@endforeach
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>
@@ -142,3 +149,32 @@
 
 
 @endsection
+
+@push('scripts')
+<script>
+
+	$(document).on('click','#change_avatar', function(){
+      $('#avatar').click();
+    });
+
+	$('#avatar').ijaboCropTool({
+          preview : '',
+          setRatio:1,
+          allowedExtensions: ['jpg', 'jpeg','png'],
+          buttonsText:['CROP','QUIT'],
+          buttonsColor:['#30bf7d','#ee5155', -15],
+          processUrl:'{{ route("avatarUpdate") }}',
+		  withCSRF:['_token', '{{ csrf_token() }}'],
+          onSuccess:function(message, element, status){
+             alert(message);
+          },
+          onError:function(message, element, status){
+            alert(message);
+          }
+       });
+	
+</script>
+
+
+
+@endpush

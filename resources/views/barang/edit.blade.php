@@ -33,6 +33,13 @@
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
+                              <label for="" class="form-label">Harga/Pcs</label>
+                              <input name="harga" type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga/Pcs" value="{{  old('harga',$barang->harga) }}">
+                            </div>
+                            @error('harga')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
                               <label for="" class="form-label">Perusahaan</label>
                               <input name="client_pt" type="text" class="form-control @error('client_pt') is-invalid @enderror" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt',$barang->client_pt) }}">
                             </div>

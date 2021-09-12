@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="{{ asset('admin/assets/vendor/linearicons/style.css') }}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/main.css') }}">
+	<link rel="stylesheet" href="/vendor/ijabocrop/ijaboCropTool.min.css">
+	{{-- <link rel="stylesheet" href="/vendor/imgbutton/imgbutton.css"> --}}
 	
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{ asset('admin/assets/css/demo.css')}}">
@@ -59,6 +61,8 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="/vendor/showpass/bootstrap-show-password.min.js"></script>
 	<script src="/vendor/showpass/showpass.js"></script>
+	<script src="/vendor/ijabocrop/ijaboCropTool.min.js"></script>
+	{{-- <script src="/vendor/imgbutton/imgbutton.js"></script> --}}
 	@stack('scripts')
 
 

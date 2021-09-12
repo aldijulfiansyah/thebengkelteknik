@@ -27,6 +27,7 @@
                                           <th scope="col">Nama Barang</th>
                                           <th scope="col">Spesifikasi</th>
                                           <th scope="col">Quantity</th>
+                                          <th scope="col">Harga/Pcs</th>
                                           <th scope="col">Perusahaan</th>
                                           <th scope="col">Agent</th>
                                           <th scope="col">Barang Keluar</th>
@@ -42,6 +43,7 @@
                                             <td scope="row">{{ $barang->nama_barang }}</td>
                                             <td scope="row">{{ $barang->deskripsi }}</td>
                                             <td scope="row">{{ $barang->jumlah }}</td>
+                                            <td scope="row">Rp {{ number_format($barang->harga) }}</td>
                                             <td scope="row">{{ $barang->client_pt }}</td>
                                             <td scope="row">{{ $barang->nama_client }}</td>
                                             <td scope="row">{{ $barang->barang_keluar }}</td>
@@ -103,6 +105,13 @@
                     <span class="help-block">{{ $errors->first('jumlah') }}</span>
                   @endif
                 </div>
+                <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
+                  <label for="" class="form-label">Harga/Pcs</label>
+                  <input name="harga" type="number" class="form-control" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga Barang per Pcs" value="{{ old('harga') }}">
+                  @if($errors->has('harga'))
+                    <span class="help-block">{{ $errors->first('harga') }}</span>
+                  @endif
+                </div>
                 <div class="form-group {{ $errors->has('client_pt') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Perusahaan</label>
                   <input name="client_pt" type="text" class="form-control" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt') }}">
@@ -155,6 +164,9 @@
     $('#exampleModal').modal('show');
 @enderror
 @error ('deskripsi')
+    $('#exampleModal').modal('show');
+@enderror
+@error ('harga')
     $('#exampleModal').modal('show');
 @enderror
 
