@@ -15,7 +15,7 @@ class PenjualanController extends Controller
         $data_penjualan = Penjualan::all();
         return view('penjualan.index', [
             'data_penjualan' => $data_penjualan,
-            'title' => 'penjualan'
+            'title' => 'Penjualan'
         ]);
     }
 
