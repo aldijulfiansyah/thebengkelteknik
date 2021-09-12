@@ -21,19 +21,18 @@ class PenjualanController extends Controller
 
     public function create(Request $request)
     {
-        $bar = Barang::all();
-        return view('penjualan.index', compact('bar'));
+
+        $data_penjualan = Barang::all();
+        return view('penjualan.index', compact('data_penjualan'));
 
         $this->validate(
             $request,
             [
                 'nama_barang' => 'required|min:4',
                 'jumlah' => 'required',
-
+                'barang_id' => 'required',
             ],
             [
-                'nama_barang.required' => 'Nama barang harus diisi !',
-                'nama_barang.min' => 'Nama barang minimal 4 karakter !',
                 'jumlah.required' => 'Jumlah barang harus diisi !',
 
             ]
