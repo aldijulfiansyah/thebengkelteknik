@@ -14,7 +14,13 @@
 								<div class="profile-header">
 									<div class="overlay"></div>
 									<div class="profile-main">
+									@foreach ($data_user as $user)
+										@if($user->avatar)
 										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
+										@else 
+										<img src="img/profile.png" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
+										@endif
+									@endforeach
 										<h3 class="name">{{ auth()->user()->name }}</h3>
 										<span class="online-status status-available">Available</span>
 									</div>
@@ -30,6 +36,7 @@
 										<ul class="list-unstyled list-justify">
 											<li>Birthdate <span>{{ auth()->user()->tgl_lahir }}</span></li>
 											<li>Username <span>{{ auth()->user()->username }}</span></li>
+											<li>Role as <span>{{ auth()->user()->role }}</span></li>
 											<li>Email <span>{{ auth()->user()->email }}</span></li>
 											<li>Created At <span>{{ auth()->user()->created_at }}</span></li>
 										</ul>
@@ -49,10 +56,6 @@
 									</div>
 									@foreach ($data_user as $user)
 									
-									{{-- <form action="/profil/{{ $user->id }}/update-avatar" method="post">
-									@csrf
-										
-									</form> --}}
 									<input type="file" name="avatar" id="avatar" style="opacity:0;height:1px;display:none">
 									<div class="text-center"><button class="btn btn-primary" id="change_avatar">Changed Avatar</button></div>
 									
@@ -161,7 +164,7 @@
           preview : '',
           setRatio:1,
           allowedExtensions: ['jpg', 'jpeg','png'],
-          buttonsText:['CROP','QUIT'],
+          buttonsText:['SAVE','CANCEL'],
           buttonsColor:['#30bf7d','#ee5155', -15],
           processUrl:'{{ route("avatarUpdate") }}',
 		  withCSRF:['_token', '{{ csrf_token() }}'],

@@ -10,7 +10,7 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="admin/assets/img/mechanic.png" alt="Logo"></div>
-								<p class="lead">Login to your account</p>
+								<p class="lead"><b>Login to your account</b></p>
 							</div>
 
                             @if(session()->has('success'))

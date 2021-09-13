@@ -10,7 +10,7 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="admin/assets/img/mechanic.png" alt="Logo"></div>
-								<p class="lead">Registration Form</p>
+								<p class="lead"><b>Registration Form</b></p>
 							</div>
 							<form class="form-auth-small" action="/register" method="post" enctype="multipart/form-data">
                             @csrf
@@ -46,6 +46,19 @@
 									<input type="text" class="form-control @error('username')is-invalid @enderror" id="username" name="username" placeholder="Username"  value="{{ old('username') }}">
 								</div>
                                 @error('username')
+                                <div class="invalid-feedback mb-2">
+                                    <p class="text-danger text-left">{{ $message }}</p>
+                                </div>
+                                @enderror
+								<div class="form-group">
+									<label for="role" class="control-label sr-only">Hak Akses</label>
+									<select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role') }}">
+										{{-- <option selected>Pilih Hak Akses</option> --}}
+										<option value="Karyawan Admin">Karyawan Admin</option>
+										<option value="Karyawan User">Karyawan User</option>
+									</select>
+								</div>
+								@error('role')
                                 <div class="invalid-feedback mb-2">
                                     <p class="text-danger text-left">{{ $message }}</p>
                                 </div>
