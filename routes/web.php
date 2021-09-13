@@ -50,7 +50,7 @@ Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['au
 Route::post('/penjualan/create', [PenjualanController::class, 'create']);
 
 // ------------------laporan management------------------------------------
-Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin']);
 Route::post('/laporan/create', [LaporanController::class, 'create']);
 Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit']);
 Route::post('/laporan/{id}/update', [LaporanController::class, 'update']);
