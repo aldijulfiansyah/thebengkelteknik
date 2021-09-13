@@ -23,34 +23,37 @@
                                 <thead>
                                     <tr>
                                       <th>No</th>
-                                      <th scope="col">Nama Barang</th>
-                                      <th scope="col">Spesifikasi</th>
-                                      <th scope="col">Quantity</th>
-                                      <th scope="col">Harga/Pcs</th>
-                                      <th scope="col">Perusahaan</th>
-                                      <th scope="col">Agent</th>
-                                      <th scope="col">Barang Keluar</th>
-                                      <th scope="col">Sisa Barang Keluar</th>
+                                      <th scope="col">Tanggal</th>
+                                      <th scope="col">Keterangan</th>
+                                      <th scope="col">Pemasukan</th>
+                                      <th scope="col">Pengeluaran</th>
                                       <th scope="col">Do</th>
                                       <th scope="col"></th>
                                     </tr>
                                 </thead>
+                                
+                                <tfoot>
+                                  <tr>
+                                    <th colspan="3">Total</th>
+                                    <th  id="total_pemasukan">Rp{{ number_format($banyak) }}</th>
+                                    <th  id="total_pengeluaran">Rp{{ number_format($banyaks) }}</th>
+                                    <th></th>
+                                    <th></th>
+                                  </tr>
+                                </tfoot>
                                 <tbody>
-                                  @foreach ($data_barang as $barang)
+                                  @foreach ($data_laporan as $laporan)
                                     <tr>
                                         <td></td>
-                                        <td scope="row"></td>
-                                        <td scope="row"></td>
-                                        <td scope="row"></td>
-                                        <td scope="row">Rp</td>
-                                        <td scope="row"></td>
-                                        <td scope="row"></td>
-                                        <td scope="row"></td>
-                                        <td scope="row"></td>
-                                        <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
-                                        <td>
-                                          <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $barang->id }}" data-nama="{{ $barang->nama_barang }}">Delete</a>
-                                        </td>
+                                        <td scope="row">{{ $laporan->tanggal }}</td>
+                                        <td scope="row">{{ $laporan->keterangan }}</td>
+                                        <td scope="row">Rp{{ number_format($laporan->pemasukan) }}</td>
+                                        <td scope="row">Rp{{ number_format($laporan->pengeluaran) }}</td>
+                                        <td scope="row"><a href="/laporan/{{ $laporan->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
+                                            <td>
+                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $laporan->id }}" data-ket="{{ $laporan->keterangan }}">Delete</a>
+                                            </td>
+                                       
                                         {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
                                           Delete
                                         </button> --}}
@@ -75,61 +78,40 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Tambah Data Laporan</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-        <form action="/barang/create" method="POST">
+        <form action="/laporan/create" method="POST">
             @csrf
-            <div class="form-group {{ $errors->has('nama_barang') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Nama Barang</label>
-              <input name="nama_barang" type="text" class="form-control" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama" value="{{ old('nama_barang') }}">
-              @if($errors->has('nama_barang'))
-                <span class="help-block">{{ $errors->first('nama_barang') }}</span>
+            <div class="form-group {{ $errors->has('tanggal') ? 'has-error' : '' }}">
+              <label for="" class="form-label">Tanggal</label>
+              <input name="tanggal" type="date" class="form-control" id="tanggal" aria-describedby="textHelp" placeholder="Masukan Tanggal" value="{{ old('tanggal') }}">
+              @if($errors->has('tanggal'))
+                <span class="help-block">{{ $errors->first('tanggal') }}</span>
               @endif
             </div>
-            <div class="form-group {{ $errors->has('deskripsi') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Spesifikasi</label>
-              <textarea type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="textHelp" placeholder="Masukan Spesifikasi Barang"> {{ old('deskripsi') }}</textarea>
-              @if($errors->has('deskripsi'))
-                <span class="help-block">{{ $errors->first('deskripsi') }}</span>
+            <div class="form-group {{ $errors->has('keterangan') ? 'has-error' : '' }}">
+              <label for="" class="form-label">Keterangan</label>
+              <input name="keterangan" type="text" class="form-control" id="keterangan" aria-describedby="textHelp" placeholder="Masukan Keterangan" value="{{ old('keterangan') }}">
+              @if($errors->has('keterangan'))
+                <span class="help-block">{{ $errors->first('keterangan') }}</span>
               @endif
             </div>
-            <div class="form-group {{ $errors->has('jumlah') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Quantity</label>
-              <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan" value="{{ old('jumlah') }}">
-              @if($errors->has('jumlah'))
-                <span class="help-block">{{ $errors->first('jumlah') }}</span>
+            <div class="form-group {{ $errors->has('pemasukan') ? 'has-error' : '' }}">
+              <label for="" class="form-label">Pemasukan</label>
+              <input name="pemasukan" type="number" class="form-control" id="pemasukan" aria-describedby="textHelp" placeholder="Masukan Pemasukan" value="{{ old('pemasukan') }}">
+              @if($errors->has('pemasukan'))
+                <span class="help-block">{{ $errors->first('pemasukan') }}</span>
               @endif
             </div>
-            <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Harga/Pcs</label>
-              <input name="harga" type="number" class="form-control" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga Barang per Pcs" value="{{ old('harga') }}">
-              @if($errors->has('harga'))
-                <span class="help-block">{{ $errors->first('harga') }}</span>
-              @endif
-            </div>
-            <div class="form-group {{ $errors->has('client_pt') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Perusahaan</label>
-              <input name="client_pt" type="text" class="form-control" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt') }}">
-              @if($errors->has('client_pt'))
-                <span class="help-block">{{ $errors->first('client_pt') }}</span>
-              @endif
-            </div>
-            <div class="form-group {{ $errors->has('nama_client') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Agent</label>
-              <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old('nama_client') }}">
-              @if($errors->has('nama_client'))
-                <span class="help-block">{{ $errors->first('nama_client') }}</span>
-              @endif
-            </div>
-            <div class="form-group {{ $errors->has('barang_keluar') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Barang Keluar</label>
-              <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Barang Keluar" value="{{ old('barang_keluar') }}">
-              @if($errors->has('barang_keluar'))
-                <span class="help-block">{{ $errors->first('barang_keluar') }}</span>
+            <div class="form-group {{ $errors->has('pengeluaran') ? 'has-error' : '' }}">
+              <label for="" class="form-label">Pengeluaran</label>
+              <input name="pengeluaran" type="number" class="form-control" id="pengeluaran" aria-describedby="textHelp" placeholder="Masukan Pengeluaran" value="{{ old('pengeluaran') }}">
+              @if($errors->has('pengeluaran'))
+                <span class="help-block">{{ $errors->first('pengeluaran') }}</span>
               @endif
             </div>
             
@@ -147,25 +129,16 @@
 @push('scripts')
 <script>
 //erorr script
-@error ('nama_barang')
+@error ('tanggal')
 $('#exampleModal').modal('show');
 @enderror
-@error ('jumlah')
+@error ('keterangan')
 $('#exampleModal').modal('show');
 @enderror
-@error ('client_pt')
+@error ('pemasukan')
 $('#exampleModal').modal('show');
 @enderror
-@error ('nama_client')
-$('#exampleModal').modal('show');
-@enderror
-@error ('barang_keluar')
-$('#exampleModal').modal('show');
-@enderror
-@error ('deskripsi')
-$('#exampleModal').modal('show');
-@enderror
-@error ('harga')
+@error ('pengeluaran')
 $('#exampleModal').modal('show');
 @enderror
 
@@ -174,6 +147,7 @@ $('#exampleModal').modal('show');
 // $(document).ready(function(){ $('#bars').DataTable(); });
 $(document).ready(function() {
 var t = $('#bars').DataTable( {
+  
     "columnDefs": [ {
         "searchable": false,
         "orderable": false,
@@ -187,24 +161,25 @@ t.on( 'order.dt search.dt', function () {
         cell.innerHTML = i+1;
     } );
 } ).draw();
+
 });
 
 //delete script
 $('.delete').click(function(){
-var barangid = $(this).attr('data-id');
-var barangnama = $(this).attr('data-nama');
+var laporanid = $(this).attr('data-id');
+var laporanket = $(this).attr('data-ket');
 
 swal({
 title: "Yakin?",
-text: "Anda akan menghapus data barang dengan nama "+barangnama+" ",
+text: "Anda akan menghapus data laporan dengan keterangan ("+laporanket+") ",
 icon: "warning",
 buttons: true,
 dangerMode: true,
 })
 .then((willDelete) => {
 if (willDelete) {
-window.location = "/barang/"+barangid+"/delete"
-swal("Data dengan nama "+barangnama+" berhasil dihapus", {
+window.location = "/laporan/"+laporanid+"/delete"
+swal("Data dengan keterangan ("+laporanket+")  berhasil dihapus", {
   icon: "success",
 });
 } else {

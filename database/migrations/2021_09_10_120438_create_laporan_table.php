@@ -15,7 +15,12 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->text('keterangan');
+            $table->bigInteger('pemasukan');
+            $table->bigInteger('pengeluaran');
             $table->timestamps();
+            
         });
     }
 

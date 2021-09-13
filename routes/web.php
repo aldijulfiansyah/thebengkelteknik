@@ -48,6 +48,10 @@ Route::post('/penjualan/create', [PenjualanController::class, 'create']);
 
 
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
+Route::post('/laporan/create', [LaporanController::class, 'create']);
+Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit']);
+Route::post('/laporan/{id}/update', [LaporanController::class, 'update']);
+Route::get('/laporan/{id}/delete', [LaporanController::class, 'delete']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
