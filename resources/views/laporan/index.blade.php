@@ -84,7 +84,7 @@
       </button>
     </div>
     <div class="modal-body">
-        <form action="/laporan/create" method="POST">
+        <form class="form-auth-small" action="/laporan/create" method="POST">
             @csrf
             <div class="form-group {{ $errors->has('tanggal') ? 'has-error' : '' }}">
               <label for="" class="form-label">Tanggal</label>
@@ -93,6 +93,7 @@
                 <span class="help-block">{{ $errors->first('tanggal') }}</span>
               @endif
             </div>
+            <br>
             <div class="form-group {{ $errors->has('keterangan') ? 'has-error' : '' }}">
               <label for="" class="form-label">Keterangan</label>
               <input name="keterangan" type="text" class="form-control" id="keterangan" aria-describedby="textHelp" placeholder="Masukan Keterangan" value="{{ old('keterangan') }}">
@@ -100,16 +101,18 @@
                 <span class="help-block">{{ $errors->first('keterangan') }}</span>
               @endif
             </div>
+            <br>
             <div class="form-group {{ $errors->has('pemasukan') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Pemasukan</label>
-              <input name="pemasukan" type="number" class="form-control" id="pemasukan" aria-describedby="textHelp" placeholder="Masukan Pemasukan" value="{{ old('pemasukan') }}">
+              <label for="" class="control-label">Pemasukan</label>
+              <input name="pemasukan" type="number" class="form-control" id="pemasukan" aria-describedby="textHelp" placeholder="Masukan Pemasukan" value="{{ old('pemasukan','0') }}">
               @if($errors->has('pemasukan'))
                 <span class="help-block">{{ $errors->first('pemasukan') }}</span>
               @endif
             </div>
+            <br>
             <div class="form-group {{ $errors->has('pengeluaran') ? 'has-error' : '' }}">
               <label for="" class="form-label">Pengeluaran</label>
-              <input name="pengeluaran" type="number" class="form-control" id="pengeluaran" aria-describedby="textHelp" placeholder="Masukan Pengeluaran" value="{{ old('pengeluaran') }}">
+              <input name="pengeluaran" type="number" class="form-control" id="pengeluaran" aria-describedby="textHelp" placeholder="Masukan Pengeluaran" value="{{ old('pengeluaran','0') }}">
               @if($errors->has('pengeluaran'))
                 <span class="help-block">{{ $errors->first('pengeluaran') }}</span>
               @endif

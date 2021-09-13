@@ -23,27 +23,20 @@ class LaporanController extends Controller
 
     public function create(Request $request)
     {
-    //     $this->validate($request,[
-    //         'nama_laporan'=>'required|min:4',
-    //         'jumlah'=>'required',
-    //         'harga'=>'required',
-    //         'client_pt'=>'required|min:5',
-    //         'nama_client'=>'required|regex:/^[a-zA-Z ]+$/|min:4',
-    //         'laporan_keluar'=>'required',
-    //     ],
-    //     [
-    //         'nama_laporan.required' => 'Nama laporan harus diisi !',
-    //         'nama_laporan.min' => 'Nama laporan minimal 4 karakter !',
-    //         'jumlah.required' => 'Jumlah laporan harus diisi !',
-    //         'harga.required' => 'Harga laporan/pcs harus diisi !',
-    //         'laporan_keluar.required' => 'Jumlah laporan keluar harus diisi!,...jika tidak ada maka laporan keluar isi dengan nilai kosong ( 0 ) !',
-    //         'client_pt.required' => 'Nama perusahaan harus diisi !',
-    //         'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
-    //         'nama_client.required' => 'Nama agent perusahaan harus diisi !',
-    //         'nama_client.min' => 'Nama agent minimal 4 karakter !',
-    //         'nama_client.regex' => 'Nama agent tidak boleh ada angka atau simbol  !'
-    //     ]
-    // );31
+        $this->validate($request,[
+            'tanggal'=>'required',
+            'keterangan'=>'required',
+            'pemasukan'=>'required',
+            'pengeluaran'=>'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal laporan harus diisi !',
+            'keterangan.required' => 'Keterangan harus diisi !',
+            'pemasukan.required' => 'Pemasukan harus diisi !',
+            'pengeluaran.required' => 'Pengeluaran harus diisi ! '
+            
+        ]
+    );
 
         Laporan::create($request->all());
 
@@ -65,28 +58,20 @@ class LaporanController extends Controller
 
     public function update(Request $request,$id)
     {
-    //     $this->validate($request,[
-    //         'nama_laporan'=>'required|min:4',
-    //         'jumlah'=>'required',
-    //         'harga'=>'required',
-    //         'client_pt'=>'required|min:5',
-    //         'nama_client'=>'required|regex:/^[a-zA-Z ]+$/|min:4',
-    //         'laporan_keluar'=>'required',
-    //     ],
-    //     [
-    //         'nama_laporan.required' => 'Nama laporan harus diisi !',
-    //         'nama_laporan.min' => 'Nama laporan minimal 4 karakter !',
-    //         'jumlah.required' => 'Jumlah laporan harus diisi !',
-    //         'harga.required' => 'Harga laporan/pcs harus diisi !',
-    //         'laporan_keluar.required' => 'Jumlah laporan keluar harus diisi!,...jika tidak ada maka laporan keluar isi dengan nilai kosong ( 0 ) !',
-    //         'client_pt.required' => 'Nama perusahaan harus diisi !',
-    //         'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
-    //         'nama_client.required' => 'Nama agent perusahaan harus diisi !',
-    //         'nama_client.min' => 'Nama agent minimal 4 karakter !',
-    //         'nama_client.regex' => 'Nama agent tidak boleh ada angka atau simbol !'
-    //     ]
-    
-    // );
+        $this->validate($request,[
+            'tanggal'=>'required',
+            'keterangan'=>'required',
+            'pemasukan'=>'required',
+            'pengeluaran'=>'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal laporan harus diisi !',
+            'keterangan.required' => 'Keterangan harus diisi !',
+            'pemasukan.required' => 'Pemasukan harus diisi !',
+            'pengeluaran.required' => 'Pengeluaran harus diisi ! '
+            
+        ]
+    );
 
         $laporan = Laporan::find($id);
         $laporan->update($request->all());
