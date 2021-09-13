@@ -51,14 +51,14 @@
                                 </div>
                                 @enderror
 								<div class="form-group">
-									<label for="level" class="control-label sr-only">Hak Akses</label>
-									<select class="form-control @error('level')is-invalid @enderror" id="level" name="level" placeholder="Username"  value="{{ old('level') }}">
+									<label for="role" class="control-label sr-only">Hak Akses</label>
+									<select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role') }}">
 										{{-- <option selected>Pilih Hak Akses</option> --}}
 										<option value="Karyawan Admin">Karyawan Admin</option>
 										<option value="Karyawan User">Karyawan User</option>
 									</select>
 								</div>
-								@error('level')
+								@error('role')
                                 <div class="invalid-feedback mb-2">
                                     <p class="text-danger text-left">{{ $message }}</p>
                                 </div>

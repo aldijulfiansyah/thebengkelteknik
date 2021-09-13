@@ -36,7 +36,7 @@
 										<ul class="list-unstyled list-justify">
 											<li>Birthdate <span>{{ auth()->user()->tgl_lahir }}</span></li>
 											<li>Username <span>{{ auth()->user()->username }}</span></li>
-											<li>Level <span>{{ auth()->user()->level }}</span></li>
+											<li>Role as <span>{{ auth()->user()->role }}</span></li>
 											<li>Email <span>{{ auth()->user()->email }}</span></li>
 											<li>Created At <span>{{ auth()->user()->created_at }}</span></li>
 										</ul>
