@@ -39,18 +39,18 @@ Route::post('/profil/update-avatar', [ProfilController::class, 'update_avatar'])
 
 
 // ------------------barang management------------------------------------
-Route::get('/barang', [BarangController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin,Karyawan User']);
+Route::get('/barang', [BarangController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
 Route::post('/barang/create', [BarangController::class, 'create']);
 Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::post('/barang/{id}/update', [BarangController::class, 'update']);
 Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
 
 // ------------------penjualan management------------------------------------
-Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin']);
+Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
 Route::post('/penjualan/create', [PenjualanController::class, 'create']);
 
 // ------------------laporan management------------------------------------
-Route::get('/laporan', [LaporanController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin']);
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
 Route::post('/laporan/create', [LaporanController::class, 'create']);
 Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit']);
 Route::post('/laporan/{id}/update', [LaporanController::class, 'update']);
