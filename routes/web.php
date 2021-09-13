@@ -8,7 +8,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfilController;
-use App\Models\Penjualan;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +44,9 @@ Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
 
 Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware('auth');
 Route::post('/penjualan/create', [PenjualanController::class, 'create']);
-
+Route::get('/penjualan/{id}/edit', [PenjualanController::class, 'edit']);
+Route::post('/penjualan/{id}/update', [PenjualanController::class, 'update']);
+Route::get('/penjualan/{id}/delete', [PenjualanController::class, 'delete']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

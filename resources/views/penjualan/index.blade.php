@@ -40,13 +40,9 @@
                                             <td scope="row">{{ $penjualan->jumlah }}</td>
                                             <td scope="row">RP {{ number_format($penjualan->barang->harga*$penjualan->jumlah)  }}</td>
                                             <td scope="row">
-                                              <a href="/Penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                              <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                                               <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}">Delete</a>
                                             </td>
-                                            {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
-                                              Delete
-                                            </button> --}}
-                                            {{-- <td scope="row"><a href="/barang/{{ $barang->id }}/delete" class="btn btn-danger btn-sm">Delete</a></td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -79,8 +75,8 @@
                     <label for="" class="form-label">Nama Barang</label>  
                     <select class="form-control select2" style="width: 100%;" name="barang_id" id="barang_id">
                         <option disabled value>- Pilih Barang -</option>
-                        @foreach ($data_penjualan as $item) 
-                        <option value="{{ $item->barang->id }}" >{{ $item->barang->nama_barang }}</option>
+                        @foreach ($bar as $item) 
+                        <option value="{{ $item->id }}" >{{ $item->nama_barang }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -148,7 +144,7 @@
 
 //delete script
 $('.delete').click(function(){
-    var barangid = $(this).attr('data-id');
+    var penjualanid = $(this).attr('data-id');
     var barangnama = $(this).attr('data-nama');
     
   swal({
@@ -160,7 +156,7 @@ $('.delete').click(function(){
 })
 .then((willDelete) => {
   if (willDelete) {
-    window.location = "/barang/"+barangid+"/delete"
+    window.location = "/penjualan/"+penjualanid+"/delete"
     swal("Data dengan nama "+barangnama+" berhasil dihapus", {
       icon: "success",
     });
