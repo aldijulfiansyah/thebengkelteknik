@@ -25,7 +25,9 @@
                                         <tr>
                                           <th>No</th>
                                           <th scope="col">Nama Barang</th>
+                                          <th scope="col">Harga/pcs</th>
                                           <th scope="col">Jumlah</th>
+                                          <th scope="col">Total Harga</th>
                                           <th scope="col">Do</th>
                                         </tr>
                                     </thead>
@@ -34,7 +36,9 @@
                                         <tr>
                                             <td></td>
                                             <td scope="row">{{ $penjualan->barang->nama_barang }}</td>
+                                            <td scope="row">Rp {{ number_format($penjualan->barang->harga) }}</td>
                                             <td scope="row">{{ $penjualan->jumlah }}</td>
+                                            <td scope="row">RP {{ number_format($penjualan->barang->harga*$penjualan->jumlah)  }}</td>
                                             <td scope="row">
                                               <a href="/Penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                                               <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}">Delete</a>
@@ -71,22 +75,16 @@
         <div class="modal-body">
             <form action="/penjualan/create" method="POST">
                 @csrf
-                <div class="form-group {{ $errors->has('nama_barang') ? 'has-error' : '' }}">
+                <div class="form-group">
                     <label for="" class="form-label">Nama Barang</label>  
                     <select class="form-control select2" style="width: 100%;" name="barang_id" id="barang_id">
-                        <option disabled value>Pilih Barang</option>
-                        {{-- @foreach ($penjualan as)
-                        <option value="{{ $penjualan->id }}" ></option>
-                        
-                        @endforeach --}}
-
-                    
-                  
-                  <input name="nama_barang" type="text" class="form-control" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama" value="{{ old('nama_barang') }}">
-                  @if($errors->has('nama_barang'))
-                    <span class="help-block">{{ $errors->first('nama_barang') }}</span>
-                  @endif
+                        <option disabled value>- Pilih Barang -</option>
+                        @foreach ($data_penjualan as $item) 
+                        <option value="{{ $item->barang->id }}" >{{ $item->barang->nama_barang }}</option>
+                        @endforeach
+                    </select>
                 </div>
+                
                 <div class="form-group {{ $errors->has('jumlah') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Jumlah</label>
                   <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan" value="{{ old('jumlah') }}">
