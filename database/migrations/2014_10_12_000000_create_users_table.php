@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('tgl_lahir');
             $table->string('email')->unique();
             $table->string('username')->unique();
+            $table->string('level');
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

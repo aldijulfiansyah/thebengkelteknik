@@ -30,7 +30,8 @@ class RegisterController extends Controller
             'name'=> 'required|max:255',
             'tgl_lahir' => 'required',
             'username' => 'required|min:3|max:255|unique:users',
-            'avatar' => 'required|mimes:jpg,jpeg,png',
+            'level' => 'required',
+            'avatar' => 'required|mimes:jpg,jpeg,png|file|max:1024',
             'email' => 'required|email:dns|unique:users',
             'password'=> 'required|min:5|max:255'
         ]);
@@ -47,6 +48,7 @@ class RegisterController extends Controller
             'name'=> $request->name,
             'tgl_lahir' => $request->tgl_lahir,
             'username' => $request->username,
+            'level' => $request->level,
             'avatar' => $avatar,
             'email' => $request->email,
             'password'=> Hash::make($request->password)

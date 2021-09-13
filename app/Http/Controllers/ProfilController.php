@@ -92,8 +92,7 @@ class ProfilController extends Controller
                 return response()->json(['status'=>0,'msg'=>'Something went wrong, updating picture in db failed.']);
                 
             }else{
-                return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully']);
-                
+                return response()->json(['status'=>1,'msg'=>'Your profile avatar has been updated successfully']);
             }
         }
     }

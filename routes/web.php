@@ -36,13 +36,13 @@ Route::post('/profil/{id}/update', [ProfilController::class, 'update']);
 Route::post('/profil/{id}/update-pass', [ProfilController::class, 'update_password']);
 Route::post('/profil/update-avatar', [ProfilController::class, 'update_avatar'])->name('avatarUpdate');
 
-Route::get('/barang', [BarangController::class, 'index'])->middleware('auth');
+Route::get('/barang', [BarangController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin,Karyawan User']);
 Route::post('/barang/create', [BarangController::class, 'create']);
 Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::post('/barang/{id}/update', [BarangController::class, 'update']);
 Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
 
-Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware('auth');
+Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['auth', 'ceklevel:Karyawan Admin']);
 Route::post('/penjualan/create', [PenjualanController::class, 'create']);
 
 
