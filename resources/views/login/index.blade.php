@@ -54,7 +54,7 @@
 								
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
 								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-user"> Belum Registrasi ? </i> <a href="/register">Registrasi Sekarang!</a></span>
+									{{-- <span class="helper-text"><i class="fa fa-user"> Belum Registrasi ? </i> <a href="/register">Registrasi Sekarang!</a></span> --}}
 								</div>
 
 							</form>
