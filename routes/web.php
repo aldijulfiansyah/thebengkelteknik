@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProfilController;
-
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PenjualanController;
@@ -59,6 +59,14 @@ Route::post('/laporan/create', [LaporanController::class, 'create']);
 Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit']);
 Route::post('/laporan/{id}/update', [LaporanController::class, 'update']);
 Route::get('/laporan/{id}/delete', [LaporanController::class, 'delete']);
+
+// -------------------user management------------------------------------
+Route::get('/user', [UserController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
+Route::post('/user/create', [UserController::class, 'create']);
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::post('/user/{id}/update', [UserController::class, 'update']);
+Route::get('/user/{id}/delete', [UserController::class, 'delete']);
+
 
 // ------------------login management------------------------------------
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

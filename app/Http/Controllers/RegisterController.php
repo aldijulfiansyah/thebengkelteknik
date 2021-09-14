@@ -29,7 +29,7 @@ class RegisterController extends Controller
         $this->validate($request, [
             'name'=> 'required|max:255',
             'tgl_lahir' => 'required',
-            'username' => 'required|min:3|max:255|unique:users',
+            'username' => 'required|min:5|max:255|unique:users',
             'role' => 'required',
             'avatar' => 'required|mimes:jpg,jpeg,png|file|max:1024',
             'email' => 'required|email:dns|unique:users',
