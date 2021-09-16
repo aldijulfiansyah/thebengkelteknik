@@ -28,6 +28,12 @@ Route::get('/', function () {
         'title' => 'Home'
     ]);
 })->middleware('auth');
+// Route::get('/lock', function () {
+//     return view('lock', [
+//         'title' => 'Lock'
+//     ]);
+// });
+
 
 
 
