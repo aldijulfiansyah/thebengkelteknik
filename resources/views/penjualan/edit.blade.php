@@ -15,6 +15,7 @@
                                 <label for="" class="form-label">Nama Barang</label>  
                                 <select class="form-control select2" style="width: 100%;" name="barang_id" id="barang_id">
                                     <option disabled value>- Pilih Barang -</option>
+                                    <option  value="{{ $penjualan->barang_id }}">{{ $penjualan->barang->nama_barang }}</option>
                                     @foreach ($bar as $item) 
                                     <option value="{{ $item->id }}" >{{ $item->nama_barang }}</option>
                                     @endforeach
