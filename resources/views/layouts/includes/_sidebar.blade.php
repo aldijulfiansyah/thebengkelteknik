@@ -14,6 +14,9 @@
                 @if (auth()->user()->role == "Karyawan Admin")
                 <li><a class="nav-link {{ Request::is('laporan') ? 'active' : '' }}" aria-current="page" href="/laporan"><i class="lnr lnr-list"></i> <span>Laporan</span></a></li>
                 @endif
+                @if (auth()->user()->role == "Karyawan Admin")
+                <li><a class="nav-link {{ Request::is('user') ? 'active' : '' }}" aria-current="page" href="/user"><i class="lnr lnr-user"></i> <span>User</span></a></li>
+                @endif
 
                 
 

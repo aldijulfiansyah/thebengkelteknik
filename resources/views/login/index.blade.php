@@ -11,6 +11,7 @@
 							<div class="header">
 								<div class="logo text-center"><img src="admin/assets/img/mechanic.png" alt="Logo"></div>
 								<p class="lead"><b>Login to your account</b></p>
+								<br>
 							</div>
 
                             @if(session()->has('success'))
@@ -51,10 +52,15 @@
 									  	</div>
 									</div>
 								</div>
-								
+								<br>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
 								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-user"> Belum Registrasi ? </i> <a href="/register">Registrasi Sekarang!</a></span>
+									<span class="helper-text"><i class="fa fa-lock"> Hubungi admin untuk meminta akses !</i></span>
+									<br>
+									<br>
+									<br>
+									<p class="mt-5 mb-3 text-muted text-center">BengkelApp &copy; 2017–2021</p>
+									{{-- <span class="helper-text"><i class="fa fa-user"> Belum Registrasi ? </i> <a href="/register">Registrasi Sekarang!</a></span> --}}
 								</div>
 
 							</form>
