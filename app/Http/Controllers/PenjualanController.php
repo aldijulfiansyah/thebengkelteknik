@@ -30,12 +30,13 @@ class PenjualanController extends Controller
         $this->validate(
             $request,
             [
+
                 'jumlah' => 'required',
-                'barang_id' => 'required',
+
 
             ],
             [
-                'jumlah.required' => 'Jumlah barang harus diisi !',
+                'jumlah.required' => 'Jumlah barang harus diisi !'
 
             ]
         );
@@ -50,7 +51,7 @@ class PenjualanController extends Controller
     public function edit($id)
     {
         $bar = Barang::all();
-        $penjualan = Penjualan::find($id);
+        $penjualan = Penjualan::with('barang')->find($id);
         return view('penjualan/edit', [
             'penjualan' => $penjualan,
             'bar' => $bar,

@@ -10,7 +10,7 @@ class Penjualan extends Model
     use HasFactory;
 
     protected $table = 'penjualan';
-    protected $guarded = ['id'];
+    protected $fillable = ['barang_id', 'jumlah'];
 
     public function barang()
     {
