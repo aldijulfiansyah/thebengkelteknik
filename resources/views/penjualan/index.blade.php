@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
 @include('sweetalert::alert')
+<br>
 
     <div class="main">
         <div class="main-content">

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
 @include('sweetalert::alert')
+<br>
 <div class="main">
     <div class="main-content">
         <div class="container-fluid">
@@ -8,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Barang</h3>
+                            <h3 class="panel-title">Data Laporan</h3>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>
@@ -103,7 +104,8 @@
             </div>
             <br>
             <div class="form-group {{ $errors->has('pemasukan') ? 'has-error' : '' }}">
-              <label for="" class="control-label">Pemasukan</label>
+              <label for="" class="control-label">Pemasukan</label> <br>
+              <span style="float:left" class="label label-danger">Rp</span>
               <input name="pemasukan" type="number" class="form-control" id="pemasukan" aria-describedby="textHelp" placeholder="Masukan Pemasukan" value="{{ old('pemasukan','0') }}">
               @if($errors->has('pemasukan'))
                 <span class="help-block">{{ $errors->first('pemasukan') }}</span>
@@ -111,7 +113,8 @@
             </div>
             <br>
             <div class="form-group {{ $errors->has('pengeluaran') ? 'has-error' : '' }}">
-              <label for="" class="form-label">Pengeluaran</label>
+              <label for="" class="form-label">Pengeluaran</label> <br>
+              <span style="float:left" class="label label-danger">Rp</span>
               <input name="pengeluaran" type="number" class="form-control" id="pengeluaran" aria-describedby="textHelp" placeholder="Masukan Pengeluaran" value="{{ old('pengeluaran','0') }}">
               @if($errors->has('pengeluaran'))
                 <span class="help-block">{{ $errors->first('pengeluaran') }}</span>

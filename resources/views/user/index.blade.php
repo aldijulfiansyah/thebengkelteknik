@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 @include('sweetalert::alert')
-
+<br>
 <div class="main">
     <div class="main-content">
         <div class="container-fluid">
@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Barang</h3>
+                            <h3 class="panel-title">Data User</h3>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>

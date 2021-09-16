@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 @include('sweetalert::alert')
-
+<br>
     <div class="main">
         <div class="main-content">
             <div class="container-fluid">
@@ -100,14 +100,15 @@
                 </div>
                 <div class="form-group {{ $errors->has('jumlah') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Quantity</label>
-                  <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan" value="{{ old('jumlah') }}">
+                  <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah Barang Yang Dipesan" value="{{ old('jumlah','0') }}">
                   @if($errors->has('jumlah'))
                     <span class="help-block">{{ $errors->first('jumlah') }}</span>
                   @endif
                 </div>
                 <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
-                  <label for="" class="form-label">Harga/Pcs</label>
-                  <input name="harga" type="number" class="form-control" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga Barang per Pcs" value="{{ old('harga') }}">
+                  <label for="" class="form-label">Harga/Pcs</label> <br>
+                  <span style="float:left" class="label label-danger">Rp</span>
+                  <input name="harga" type="number" class="form-control" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga Barang per Pcs" value="{{ old('harga','0') }}">
                   @if($errors->has('harga'))
                     <span class="help-block">{{ $errors->first('harga') }}</span>
                   @endif
@@ -128,7 +129,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('barang_keluar') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Barang Keluar</label>
-                  <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Barang Keluar" value="{{ old('barang_keluar') }}">
+                  <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Barang Keluar" value="{{ old('barang_keluar','0') }}">
                   @if($errors->has('barang_keluar'))
                     <span class="help-block">{{ $errors->first('barang_keluar') }}</span>
                   @endif

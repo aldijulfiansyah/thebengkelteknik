@@ -2,6 +2,7 @@
     <div class="sidebar-scroll">
         <nav>
             <br>
+            <br>
             <ul class="nav">
 
                 <li><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
