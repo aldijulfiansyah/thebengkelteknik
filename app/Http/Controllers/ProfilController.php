@@ -96,7 +96,6 @@ class ProfilController extends Controller
                 // if($user->avatar) {
                 //     Storage::delete($user->avatar);
                 // }
-        $user->delete();
             }else{
                 return response()->json(['status'=>1,'msg'=>'Your profile avatar has been updated successfully']);
             }
