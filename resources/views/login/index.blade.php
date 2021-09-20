@@ -69,8 +69,8 @@
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Free Bootstrap dashboard template</h1>
-							<p>by The Develovers</p>
+							<h1 class="heading">Welcome To Subagio Teknik App</h1>
+							<p>- hope you enjoy</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
