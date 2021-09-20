@@ -28,6 +28,7 @@ Route::get('/', function () {
         'title' => 'Home'
     ]);
 })->middleware('auth');
+
 // Route::get('/lock', function () {
 //     return view('lock', [
 //         'title' => 'Lock'
@@ -78,6 +79,8 @@ Route::get('/user/{id}/delete', [UserController::class, 'delete']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
+// Route::get('/lock', [LoginController::class, 'index_lock']);
+// Route::post('/lock', [LoginController::class, 'auth_admin']);
 
 // ------------------register management------------------------------------
 // Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');

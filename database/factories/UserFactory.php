@@ -27,6 +27,7 @@ class UserFactory extends Factory
             'tgl_lahir' => $this->faker->date(),
             'email' => $this->faker->unique()->safeEmail(),
             'username' => $this->faker->unique()->userName(),
+            'role' => 'Karyawan Admin',
             'email_verified_at' => now(),
             'password' => bcrypt('12345'), // password
             'remember_token' => Str::random(10),

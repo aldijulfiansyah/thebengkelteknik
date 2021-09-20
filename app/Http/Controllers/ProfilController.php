@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfilController extends Controller
 {
@@ -66,7 +68,7 @@ class ProfilController extends Controller
         }
     }
 
-    public function update_avatar(Request $request)
+    public function update_avatar(Request $request, User $user)
     {
         $path = '/storage/thumbnail/';
         $file = $request->file('avatar');
@@ -90,7 +92,11 @@ class ProfilController extends Controller
 
             if( !$upload ){
                 return response()->json(['status'=>0,'msg'=>'Something went wrong, updating picture in db failed.']);
-                
+                // $user = User::find($id);
+                // if($user->avatar) {
+                //     Storage::delete($user->avatar);
+                // }
+        $user->delete();
             }else{
                 return response()->json(['status'=>1,'msg'=>'Your profile avatar has been updated successfully']);
             }
