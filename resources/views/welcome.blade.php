@@ -42,16 +42,20 @@
                                 <span class="icon"><i class="fa fa-archive"></i></span>
                                 <p>
                                     <span class="number">{{ $bar }}</span>
-                                    <span class="title">Total Data Barang</span>
+                                    <span class="title">Total Data Barang</span><br>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/barang" role="button">View Data</a></span>
+                                    
                                 </p>
                             </div>
                         </div>
+                        
                         <div class="col-md-3">
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-shopping-cart"></i></span>
                                 <p>
                                     <span class="number">{{ $penj }}</span>
-                                    <span class="title">Total Data Penjualan</span>
+                                    <span class="title">Total Data Penjualan</span><br>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/penjualan" role="button">View Data</a></span>
                                 </p>
                             </div>
                         </div>
@@ -60,7 +64,8 @@
                                 <span class="icon"><i class="fa fa-list-ul"></i></span>
                                 <p>
                                     <span class="number">{{ $lap }}</span>
-                                    <span class="title">Total Data Laporan</span>
+                                    <span class="title">Total Data Laporan</span><br>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/laporan" role="button">View Data</a></span>
                                 </p>
                             </div>
                         </div>
@@ -69,7 +74,8 @@
                                 <span class="icon"><i class="fa fa-users"></i></span>
                                 <p>
                                     <span class="number">{{ $user }}</span>
-                                    <span class="title">Total User</span>
+                                    <span class="title">Total User</span><br>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/user" role="button">View Data</a></span>
                                 </p>
                             </div>
                         </div>
@@ -95,4 +101,5 @@
                     </div>
                 </div>
             </div>
+            
 @endsection

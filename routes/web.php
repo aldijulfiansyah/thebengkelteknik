@@ -37,6 +37,7 @@ use App\Http\Controllers\PenjualanController;
 //     ]);
 // });
 
+// -------------------dashboard admin-------------------------------------
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
 
