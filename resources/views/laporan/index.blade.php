@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Laporan</h3>
+                            <h2>Data Laporan</h2>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>
@@ -50,9 +50,9 @@
                                         <td scope="row">{{ $laporan->keterangan }}</td>
                                         <td scope="row">Rp{{ number_format($laporan->pemasukan) }}</td>
                                         <td scope="row">Rp{{ number_format($laporan->pengeluaran) }}</td>
-                                        <td scope="row"><a href="/laporan/{{ $laporan->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
+                                        <td scope="row"><a href="/laporan/{{ $laporan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a></td>
                                             <td>
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $laporan->id }}" data-ket="{{ $laporan->keterangan }}">Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $laporan->id }}" data-ket="{{ $laporan->keterangan }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                        
                                         {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">

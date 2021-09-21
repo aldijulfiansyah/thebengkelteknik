@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Data Barang</h3>
+                                <h2>Data Barang</h2>
                                 <div class="right">
                                       <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                           <i class="lnr lnr-plus-circle"></i>
@@ -33,7 +33,7 @@
                                           <th scope="col">Barang Keluar</th>
                                           <th scope="col">Sisa Barang Keluar</th>
                                           <th scope="col">Do</th>
-                                          <th scope="col"></th>
+                                          {{-- <th scope="col"></th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,9 +48,9 @@
                                             <td scope="row">{{ $barang->nama_client }}</td>
                                             <td scope="row">{{ $barang->barang_keluar }}</td>
                                             <td scope="row">{{ $barang->jumlah - $barang->barang_keluar }}</td>
-                                            <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
-                                            <td>
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $barang->id }}" data-nama="{{ $barang->nama_barang }}">Delete</a>
+                                            <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                              &nbsp;&nbsp;&nbsp;
+                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $barang->id }}" data-nama="{{ $barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                             {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
                                               Delete

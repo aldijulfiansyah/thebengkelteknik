@@ -22,7 +22,7 @@
 										@endif
 									@endforeach
 										<h3 class="name">{{ auth()->user()->name }}</h3>
-										<span class="online-status status-available">Available</span>
+										<span class="online-status status-available">Online</span>
 									</div>
 									<div class="profile-stat">
 										
