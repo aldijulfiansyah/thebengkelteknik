@@ -26,9 +26,28 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('admin/assets/img/favicon.png')}}">
 	
+
+	<style>
+		.loader {
+	
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-top: 20%;
+    background: #2b333e;
+    margin: 0 auto;
+    z-index: 99999;
+    padding-left: 47%;
+}
+	</style>
 </head>
 
 <body>
+
+	<div class="loader">
+		<img src="{{ asset('admin/assets/img/bars.svg') }}" >
+	</div>
+
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
@@ -52,6 +71,7 @@
 
     <!-- DataTables -->
 	<script src="{{ asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
+
 	
 <!-- DataTables -->
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
@@ -63,6 +83,14 @@
 	<script src="/vendor/showpass/showpass.js"></script>
 	<script src="/vendor/ijabocrop/ijaboCropTool.min.js"></script>
 	{{-- <script src="/vendor/imgbutton/imgbutton.js"></script> --}}
+	<script>
+		$(function(){
+			setTimeout(()=>{
+				$(".loader").fadeOut(400);
+			},800)
+		})
+	</script>
+
 	@stack('scripts')
 
 
