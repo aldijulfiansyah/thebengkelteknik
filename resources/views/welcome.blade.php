@@ -10,6 +10,26 @@
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
+                    @if(auth()->user()->role == "Karyawan Admin")
+                    <h1>Welcome Admin, {{ auth()->user()->name }} 
+                        @foreach ($data_user as $datas)
+                        @if($datas->avatar)
+                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        @else
+                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        @endif
+                        @endforeach
+                    @else 
+                    <h1>Welcome User, {{ auth()->user()->name }}
+                        @foreach ($data_user as $datas)
+                        @if($datas->avatar)
+                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        @else
+                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        @endif
+                        @endforeach
+                    @endif
+                    
                     <h3 class="panel-title">Weekly Overview</h3>
                     <p class="panel-subtitle">@php
                         $date = date('Y-m-d');

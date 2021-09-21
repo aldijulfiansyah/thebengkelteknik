@@ -36,10 +36,10 @@
 
                             <div class="form-group">
                                 <label for="role" class="form-label">Hak Akses</label>
-                                <select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role', $user->role) }}">
-                                    {{-- <option selected>Pilih Hak Akses</option> --}}
-                                    <option value="Karyawan Admin">Karyawan Admin</option>
-                                    <option value="Karyawan User">Karyawan User</option>
+                                <select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role', $user->role) }}" required>
+                                  <option value="">--Pilih Hak Akses--</option>
+                                  <option value="Karyawan Admin">1. Karyawan Admin</option>
+                                  <option value="Karyawan User">2. Karyawan User</option>
                                 </select>
                             </div>
                             @error('role')

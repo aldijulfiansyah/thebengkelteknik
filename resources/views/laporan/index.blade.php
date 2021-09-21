@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Laporan</h3>
+                            <h2>Data Laporan</h2>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>

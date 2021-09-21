@@ -9,7 +9,8 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data User</h3>
+                            <h2>Data User</h2>
+                            <h3  class="panel-title">Current Status User : {{ auth()->user()->name }} <span class="label label-success">Active</span></h3>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>
@@ -49,7 +50,7 @@
                                         <td scope="row">{{ $user->tgl_lahir }}</td>
                                         <td scope="row">{{ $user->email }}</td>
                                         <td scope="row">{{ $user->username }}</td>
-                                        <td scope="row">{{ $user->role }}</td>
+                                        <td scope="row"><span class="label label-primary">{{ $user->role }}</span></td>
                                         <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
                                         <td>
                                           <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-nama="{{ $user->name }}">Delete</a>

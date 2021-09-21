@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+
 class HomeController extends Controller
 {
     /**
@@ -13,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
+        $data_user = User::find(Auth::user());
         $banyak = DB::table('laporan')->sum('pemasukan');
         $banyaks = DB::table('laporan')->sum('pengeluaran');
         $lap = DB::table('laporan')->count();
@@ -26,7 +31,8 @@ class HomeController extends Controller
             'user' => $user,
             'title' => 'Home',
             'banyak' => $banyak,
-            'banyaks' => $banyaks
+            'banyaks' => $banyaks,
+            'data_user' => $data_user
         ]);
     }
 
