@@ -1,4 +1,4 @@
-<div id="sidebar-nav" class="sidebar">
+<div id="sidebar-nav" class="sidebar inverted">
     <div class="sidebar-scroll">
         <nav>
             <br>

@@ -50,8 +50,8 @@
                                         <td scope="row">{{ $user->tgl_lahir }}</td>
                                         <td scope="row">{{ $user->email }}</td>
                                         <td scope="row">{{ $user->username }}</td>
-                                        <td scope="row"><span class="label label-primary">{{ $user->role }}</span></td>
-                                        <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                        <td scope="row"><span class="label label-primary inverted">{{ $user->role }}</span></td>
+                                        <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
                                             &nbsp;&nbsp;&nbsp;
                                             <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-nama="{{ $user->name }}"><i class="fa fa-trash-o"></i> Delete</a>
                                         </td>

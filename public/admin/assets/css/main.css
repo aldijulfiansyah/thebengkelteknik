@@ -23,7 +23,7 @@ body {
   background-color: #F3F5F8;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
-  color: #676a6d; }
+  color: #000000; }
 
 a {
   color: #3287B2; }
@@ -1760,5 +1760,20 @@ ul.activity-timeline > li {
   .project-table > tbody > tr > td .avatar {
     width: 22px;
     border: 1px solid #CCC; }
+
+    .btn {
+       
+      
+      }
+
+    /* .dark-mode {
+      filter: invert(1) hue-rotate(180deg)
+    }
+
+    .invert {
+      filter: invert(1) hue-rotate(180deg)
+    } */
+
+    
 
 /*# sourceMappingURL=main.css.map */
