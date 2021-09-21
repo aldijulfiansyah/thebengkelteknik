@@ -82,6 +82,7 @@
 	<script src="/vendor/showpass/bootstrap-show-password.min.js"></script>
 	<script src="/vendor/showpass/showpass.js"></script>
 	<script src="/vendor/ijabocrop/ijaboCropTool.min.js"></script>
+	<script src="/vendor/dark/dark.js"></script>
 	{{-- <script src="/vendor/imgbutton/imgbutton.js"></script> --}}
 	<script>
 		$(function(){
@@ -92,6 +93,7 @@
 	</script>
 
 	@stack('scripts')
+
 
 
 

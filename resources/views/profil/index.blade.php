@@ -16,7 +16,7 @@
 									<div class="profile-main">
 									@foreach ($data_user as $user)
 										@if($user->avatar)
-										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
+										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle inverted" alt="Avatar">
 										@else 
 										<img src="img/profile.png" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
 										@endif
