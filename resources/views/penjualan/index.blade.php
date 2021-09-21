@@ -30,6 +30,7 @@
                                           <th scope="col">Harga/pcs</th>
                                           <th scope="col">Total Harga</th>
                                           <th scope="col">Do</th>
+                                          {{-- <th scope="col"></th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,9 +42,10 @@
                                             <td scope="row">Rp {{ number_format($penjualan->barang->harga) }}</td>
                                             <td scope="row">RP {{ number_format($penjualan->barang->harga*$penjualan->jumlah)  }}</td>
                                             <td scope="row">
-                                              <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                              <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                              &nbsp;&nbsp;&nbsp;
                                               {{-- <a href="#" class="btn btn-success btn-sm">Print</a> --}}
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}">Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

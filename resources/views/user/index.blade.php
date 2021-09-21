@@ -32,7 +32,7 @@
                                       <th scope="col">Username</th>
                                       <th scope="col">Role</th>
                                       <th scope="col">Do</th>
-                                      <th scope="col"></th>
+                                      {{-- <th scope="col"></th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,9 +51,9 @@
                                         <td scope="row">{{ $user->email }}</td>
                                         <td scope="row">{{ $user->username }}</td>
                                         <td scope="row"><span class="label label-primary">{{ $user->role }}</span></td>
-                                        <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
-                                        <td>
-                                          <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-nama="{{ $user->name }}">Delete</a>
+                                        <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-nama="{{ $user->name }}"><i class="fa fa-trash-o"></i> Delete</a>
                                         </td>
                                         {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
                                           Delete
