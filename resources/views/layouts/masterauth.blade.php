@@ -25,11 +25,26 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('admin/assets/img/favicon.png')}}">
 
+	<style>
+		.loader {
+	
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-top: 20%;
+    background: #2b333e;
+    margin: 0 auto;
+    z-index: 99999;
+    padding-left: 47%;
+}
+	</style>
 </head>
 
 <body>
+	<div class="loader">
+		<img src="{{ asset('admin/assets/img/bars.svg') }}" >
+	</div>
   @yield('container')
-
 
 
 
@@ -46,4 +61,11 @@
 	<script src="/vendor/showpass/showpass.js"></script>
 </body>
 
+<script>
+	$(function(){
+		setTimeout(()=>{
+			$(".loader").fadeOut(300);
+		},650)
+	})
+</script>
 </html>
