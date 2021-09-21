@@ -60,6 +60,7 @@
                                         </button> --}}
                                         {{-- <td scope="row"><a href="/barang/{{ $barang->id }}/delete" class="btn btn-danger btn-sm">Delete</a></td> --}}
                                     </tr>
+                                    
                                     @endforeach
                                 </tbody>
                             </table>
