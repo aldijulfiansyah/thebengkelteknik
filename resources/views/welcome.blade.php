@@ -87,15 +87,15 @@
                         <div class="col-md-3">
                             <div class="weekly-summary text-right">
                                 <span class="number">Rp{{number_format($banyak) }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
-                                <span class="info-label">Total Pemasukan</span>
+                                <span class="info-label">- Total Pemasukan</span>
                             </div>
                             <div class="weekly-summary text-right">
                                 <span class="number">Rp{{ number_format($banyaks) }}</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> {{ round(($banyaks/$banyak) *100) }}% dari Total Pemasukan</span>
-                                <span class="info-label">Total Pengeluaran</span>
+                                <span class="info-label">- Total Pengeluaran</span>
                             </div>
                             <div class="weekly-summary text-right">
                                 <span class="number">Rp{{ number_format($banyak-$banyaks) }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> {{ round((($banyak-$banyaks)/$banyak) *100) }}% dari Total Pemasukan</span>
-                                <span class="info-label">Selisih</span>
+                                <span class="info-label">- Selisih</span>
                             </div>
                         </div>
                     </div>

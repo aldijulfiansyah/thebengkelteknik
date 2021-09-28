@@ -59,7 +59,7 @@
 									<br>
 									<br>
 									<br>
-									<p class="mt-5 mb-3 text-muted text-center">BengkelApp &copy; 2017–2021</p>
+									<p class="mt-5 mb-3 text-muted text-center">Subagio Teknik &copy; 2017–2021</p>
 									{{-- <span class="helper-text"><i class="fa fa-user"> Belum Registrasi ? </i> <a href="/register">Registrasi Sekarang!</a></span> --}}
 								</div>
 

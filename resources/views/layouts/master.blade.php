@@ -87,8 +87,8 @@
 	<script>
 		$(function(){
 			setTimeout(()=>{
-				$(".loader").fadeOut(300);
-			},650)
+				$(".loader").fadeOut(150);
+			},300)
 		})
 	</script>
 
