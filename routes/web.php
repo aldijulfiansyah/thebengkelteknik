@@ -13,6 +13,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PerusahaanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +57,13 @@ Route::post('/customer/create', [CustomerController::class, 'create']);
 Route::get('/customer/{id}/edit', [CustomerController::class, 'edit']);
 Route::post('/customer/{id}/update', [CustomerController::class, 'update']);
 Route::get('/customer/{id}/delete', [CustomerController::class, 'delete']);
+
+// ------------------Perusahaan management------------------------------------
+Route::get('/perusahaan', [PerusahaanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
+Route::post('/perusahaan/create', [PerusahaanController::class, 'create']);
+Route::get('/perusahaan/{id}/edit', [PerusahaanController::class, 'edit']);
+Route::post('/perusahaan/{id}/update', [PerusahaanController::class, 'update']);
+Route::get('/perusahaan/{id}/delete', [PerusahaanController::class, 'delete']);
 
 // ------------------barang management------------------------------------
 Route::get('/barang', [BarangController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);

@@ -19,24 +19,10 @@
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="" class="form-label">Agent</label>
+                                <label for="" class="form-label">Nama Agent</label>
                                 <input name="nama_agent" type="text" class="form-control @error('nama_agent') is-invalid @enderror"  name="nama_agent" id="nama_agent" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('nama_agent',$customer->nama_agent) }}">
                             </div>
                             @error('nama_agent')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <label for="" class="form-label">Alamat</label>
-                                <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror"  name="alamat" id="alamat" aria-describedby="textHelp" placeholder="Masukan Alamat" value="{{ old ('alamat',$customer->alamat) }}">
-                            </div>
-                            @error('alamat')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <label for="" class="form-label">Kota</label>
-                                <input name="kota" type="text" class="form-control @error('kota') is-invalid @enderror"  name="kota" id="kota" aria-describedby="textHelp" placeholder="Masukan Kota" value="{{ old ('kota',$customer->kota) }}">
-                            </div>
-                            @error('kota')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">

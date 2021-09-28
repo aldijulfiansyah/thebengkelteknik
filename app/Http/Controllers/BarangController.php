@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Barang;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -9,11 +10,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 class BarangController extends Controller
 {
    public function index()
-   {
+   {   $data_customer = Customer::all();
        $data_barang = Barang::all();
         return view('barang.index',[
-        'data_barang' => $data_barang,
-        'title' => 'Barang'
+            'data_barang' => $data_barang,
+            'data_customer' => $data_customer,
+            'title' => 'Barang'
     ]);
     }
 
@@ -41,6 +43,7 @@ class BarangController extends Controller
         ]
     );
 
+        $data_customer = Customer::all();
         Barang::create($request->all());
 
         Alert::success('Ditambahkan', 'Data Berhasil Ditambahkan');

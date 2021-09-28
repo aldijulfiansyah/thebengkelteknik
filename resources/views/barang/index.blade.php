@@ -113,20 +113,9 @@
                     <span class="help-block">{{ $errors->first('harga') }}</span>
                   @endif
                 </div>
-                <div class="form-group {{ $errors->has('client_pt') ? 'has-error' : '' }}">
-                  <label for="" class="form-label">Perusahaan</label>
-                  <input name="client_pt" type="text" class="form-control" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt') }}">
-                  @if($errors->has('client_pt'))
-                    <span class="help-block">{{ $errors->first('client_pt') }}</span>
-                  @endif
-                </div>
-                <div class="form-group {{ $errors->has('nama_client') ? 'has-error' : '' }}">
-                  <label for="" class="form-label">Agent</label>
-                  <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old('nama_client') }}">
-                  @if($errors->has('nama_client'))
-                    <span class="help-block">{{ $errors->first('nama_client') }}</span>
-                  @endif
-                </div>
+                
+                  @livewire('select')
+              
                 <div class="form-group {{ $errors->has('barang_keluar') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Barang Keluar</label>
                   <input name="barang_keluar" type="number" class="form-control" id="barang_keluar" aria-describedby="textHelp" placeholder="Masukan Barang Keluar" value="{{ old('barang_keluar','0') }}">
