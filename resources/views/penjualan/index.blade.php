@@ -46,6 +46,7 @@
                                               <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
                                               &nbsp;&nbsp;&nbsp;
                                               <a href="/penjualan/{{ $penjualan->id }}/invoice" class="btn btn-success btn-sm">Invoice</a>
+                                              &nbsp;&nbsp;&nbsp;
                                               <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                         </tr>
