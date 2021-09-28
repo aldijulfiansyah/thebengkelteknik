@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+
 class CustomerController extends Controller
 {
     public function index()
-    {   $data_customer = Customer::all();
+    {
+        $data_customer = Customer::all();
         $data_perusahaan = Perusahaan::all();
-        
+
         return view('customer.index', [
             'data_customer' => $data_customer,
             'data_perusahaan' => $data_perusahaan,

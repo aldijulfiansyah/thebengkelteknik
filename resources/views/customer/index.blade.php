@@ -36,7 +36,7 @@
                                         <tr>
                                             <td></td>
                                             <td scope="row">{{ $customer->nama_agent }}</td>
-                                            <td scope="row">{{ $customer->pt_id }}</td>
+                                            <td scope="row">{{ $customer->perusahaan->nama_pt }}</td>
                                             <td scope="row">{{ $customer->email_agent }}</td>
                                             <td scope="row">{{ $customer->no_telp_agent }}</td>
                                             <td scope="row"><a href="/customer/{{ $customer->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
@@ -73,7 +73,7 @@
                 @csrf
                 <div class="form-group">
                   <label for="" class="form-label">Perusahaan</label>  
-                  <select class="form-control select2" style="width: 100%;" name="pt_id" id="type" required>
+                  <select class="form-control select2" style="width: 100%;" name="perusahaan_id" id="type" required>
                       <option value="">- Pilih Perusahaan -</option>
                       @foreach ($data_perusahaan as $item) 
                       <option value="{{ $item->id }}" >{{ $item->nama_pt }}</option>
