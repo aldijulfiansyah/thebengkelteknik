@@ -43,7 +43,9 @@
                                 <p>
                                     <span class="number">{{ $bar }}</span>
                                     <span class="title">Total Data Barang</span><br>
+                                    @if (auth()->user()->role == "Karyawan Admin")
                                     <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/barang" role="button">View Data</a></span>
+                                    @endif
                                     
                                 </p>
                             </div>
@@ -55,7 +57,9 @@
                                 <p>
                                     <span class="number">{{ $penj }}</span>
                                     <span class="title">Total Data Penjualan</span><br>
+                                    @if (auth()->user()->role == "Karyawan Admin")
                                     <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/penjualan" role="button">View Data</a></span>
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -65,7 +69,9 @@
                                 <p>
                                     <span class="number">{{ $lap }}</span>
                                     <span class="title">Total Data Laporan</span><br>
+                                    @if (auth()->user()->role == "Karyawan Admin")
                                     <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/laporan" role="button">View Data</a></span>
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -75,7 +81,9 @@
                                 <p>
                                     <span class="number">{{ $user }}</span>
                                     <span class="title">Total User</span><br>
+                                    @if (auth()->user()->role == "Karyawan Admin")
                                     <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/user" role="button">View Data</a></span>
+                                    @endif
                                 </p>
                             </div>
                         </div>
