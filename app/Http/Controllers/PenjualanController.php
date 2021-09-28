@@ -30,12 +30,13 @@ class PenjualanController extends Controller
         $this->validate(
             $request,
             [
-
+                'tanggal' => 'required',
                 'jumlah' => 'required',
 
 
             ],
             [
+                'tanggal.required' => 'Tanggal penjualan harus diisi !',
                 'jumlah.required' => 'Jumlah barang harus diisi !'
 
             ]
@@ -64,9 +65,11 @@ class PenjualanController extends Controller
         $this->validate(
             $request,
             [
+                'tanggal' => 'required',
                 'jumlah' => 'required',
             ],
             [
+                'tanggal.required' => 'Tanggal penjualan harus diisi !',
                 'jumlah.required' => 'Jumlah barang harus diisi !',
             ]
 
@@ -83,5 +86,18 @@ class PenjualanController extends Controller
         $penjualan->delete();
         Alert::success('Dihapus', 'Data Berhasil Dihapus');
         return redirect('/penjualan');
+    }
+
+
+    public function invoice($id)
+    {
+
+        $data_penjualan = Penjualan::all()->where('id', $id)->first();
+        $bar = Barang::all();
+        return view('penjualan/invoice', [
+            'data_penjualan' => $data_penjualan,
+            'bar' => $bar,
+            'title' => 'Invoice'
+        ]);
     }
 }

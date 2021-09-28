@@ -68,7 +68,7 @@
 	<!-- Javascript -->
 	
    <!-- jQuery -->
-
+	
     <!-- DataTables -->
 	<script src="{{ asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
 
