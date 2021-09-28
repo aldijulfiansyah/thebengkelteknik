@@ -10,7 +10,14 @@
                     <div class="panel-body">
                         <form action="/penjualan/{{ $penjualan->id }}/update" method="POST">
                             @csrf
-                            
+                            <div class="form-group">
+                                <label for="" class="form-label">Tanggal</label>
+                                <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror"  name="tanggal" id="tanggal" aria-describedby="textHelp" placeholder="Masukan Tanggal" value="{{ old ('tanggal',$penjualan->tanggal) }}">
+                              </div>
+                              @error('tanggal')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
+
                             <div class="form-group">
                                 <label for="" class="form-label">Nama Barang</label>  
                                 <select class="form-control select2" style="width: 100%;" name="barang_id" id="barang_id">
@@ -42,46 +49,3 @@
 
     
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@section('content1')
-
-        <h1>Edit Barang</h1>
-        @if(session('sukses'))
-        <div class="alert alert-success" role="alert">
-            {{ session('sukses') }}
-          </div>
-        @endif
-        <div class="form-row align-items-center">
-            <div class="col-md-6" >
-            <form action="/penjualan/{{ $penjualan->id }}/update" method="POST">
-                @csrf
-                <div class="form-group">
-                  <label for="" class="form-label">Nama Barang</label>
-                  <input name="nama_barang" type="text" class="form-control" id="nama_barang" aria-describedby="textHelp" placeholder="Masukan Nama" value="{{ $penjualan->barang->nama_barang }}">
-                </div>
-                <div class="form-group">
-                  <label for="" class="form-label">Jumlah</label>
-                  <input name="jumlah" type="number" class="form-control" id="jumlah" aria-describedby="textHelp" placeholder="Masukan Jumlah" value="{{ $penjualan->barang->jumlah }}">
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
-        </div>
-    </div>
-    
-    
-    @endsection
-

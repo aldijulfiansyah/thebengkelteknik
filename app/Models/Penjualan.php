@@ -10,7 +10,7 @@ class Penjualan extends Model
     use HasFactory;
 
     protected $table = 'penjualan';
-    protected $fillable = ['barang_id', 'jumlah'];
+    protected $fillable = ['tanggal', 'barang_id', 'jumlah'];
 
     public function barang()
     {

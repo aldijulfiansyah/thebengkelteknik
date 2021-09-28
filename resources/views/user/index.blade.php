@@ -117,7 +117,7 @@
                     @endif
                 </div>
                 <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
-                    <label for="role" class="form-label">Hak Akses</label>
+                    <label for="role" class="form-label">Authorization</label>
                     <select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role') }}" required>
                         <option value="">--Pilih Hak Akses--</option>
 						<option value="Karyawan Admin">1. Karyawan Admin</option>
@@ -128,7 +128,7 @@
                     @endif
                 </div>
                 <div class="form-group {{ $errors->has('avatar') ? 'has-error' : '' }}">
-                    <label for="avatar" class="form-label">Avatar</label>
+                    <label for="avatar" class="form-label">Avatar (Optional)</label>
                     <input type="file" class="form-control @error('avatar')is-invalid @enderror" id="avatar" name="avatar" placeholder="Avatar"  value="{{ old('avatar') }}">
                     @if($errors->has('avatar'))
                         <span class="help-block">{{ $errors->first('avatar') }}</span>

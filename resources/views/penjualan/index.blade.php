@@ -25,18 +25,19 @@
                                     <thead>
                                         <tr>
                                           <th>No</th>
+                                          <th scope="col">Tanggal</th>
                                           <th scope="col">Nama Barang</th>
                                           <th scope="col">Jumlah</th>
                                           <th scope="col">Harga/pcs</th>
                                           <th scope="col">Total Harga</th>
                                           <th scope="col">Do</th>
-                                          {{-- <th scope="col"></th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
                                       @foreach ($data_penjualan as $penjualan)
                                         <tr>
                                             <td></td>
+                                            <td scope="row">{{ $penjualan->tanggal }}</td>
                                             <td scope="row">{{ $penjualan->barang->nama_barang }}</td>
                                             <td scope="row">{{ $penjualan->jumlah }}</td>
                                             <td scope="row">Rp {{ number_format($penjualan->barang->harga) }}</td>
@@ -44,7 +45,8 @@
                                             <td scope="row">
                                               <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
                                               &nbsp;&nbsp;&nbsp;
-                                              {{-- <a href="#" class="btn btn-success btn-sm">Print</a> --}}
+                                              <a href="/penjualan/{{ $penjualan->id }}/invoice" class="btn btn-success btn-sm">Invoice</a>
+                                              &nbsp;&nbsp;&nbsp;
                                               <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                         </tr>
@@ -74,6 +76,14 @@
         <div class="modal-body">
             <form action="/penjualan/create" method="POST">
                 @csrf
+                <div class="form-group {{ $errors->has('tanggal') ? 'has-error' : '' }}">
+                  <label for="" class="form-label">Tanggal</label>
+                  <input name="tanggal" type="date" class="form-control" id="tanggal" aria-describedby="textHelp" placeholder="Masukan Tanggal" value="{{ old('tanggal') }}">
+                  @if($errors->has('tanggal'))
+                    <span class="help-block">{{ $errors->first('tanggal') }}</span>
+                  @endif
+                </div>
+
                 <div class="form-group">
                     <label for="" class="form-label">Nama Barang</label>  
                     <select class="form-control select2" style="width: 100%;" name="barang_id" id="type" required>
@@ -106,24 +116,16 @@
   @push('scripts')
   <script>
 //erorr script
+@error ('tanggal')
+   $('#exampleModal').modal('show');
+@enderror
 @error ('nama_barang')
     $('#exampleModal').modal('show');
 @enderror
 @error ('jumlah')
     $('#exampleModal').modal('show');
 @enderror
-@error ('client_pt')
-    $('#exampleModal').modal('show');
-@enderror
-@error ('nama_client')
-    $('#exampleModal').modal('show');
-@enderror
-@error ('barang_keluar')
-    $('#exampleModal').modal('show');
-@enderror
-@error ('deskripsi')
-    $('#exampleModal').modal('show');
-@enderror
+
 
 
 ///datatables script
@@ -152,7 +154,7 @@ $('.delete').click(function(){
     
   swal({
   title: "Yakin?",
-  text: "Anda akan menghapus data barang dengan nama "+barangnama+" ",
+  text: "Anda akan menghapus data penjualan dengan nama "+barangnama+" ",
   icon: "warning",
   buttons: true,
   dangerMode: true,

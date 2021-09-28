@@ -12,7 +12,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PenjualanController;
-
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +50,12 @@ Route::post('/profil/{id}/update', [ProfilController::class, 'update']);
 Route::post('/profil/{id}/update-pass', [ProfilController::class, 'update_password']);
 Route::post('/profil/update-avatar', [ProfilController::class, 'update_avatar'])->name('avatarUpdate');
 
+// ------------------customer management------------------------------------
+Route::get('/customer', [CustomerController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
+Route::post('/customer/create', [CustomerController::class, 'create']);
+Route::get('/customer/{id}/edit', [CustomerController::class, 'edit']);
+Route::post('/customer/{id}/update', [CustomerController::class, 'update']);
+Route::get('/customer/{id}/delete', [CustomerController::class, 'delete']);
 
 // ------------------barang management------------------------------------
 Route::get('/barang', [BarangController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
@@ -64,6 +70,7 @@ Route::post('/penjualan/create', [PenjualanController::class, 'create']);
 Route::get('/penjualan/{id}/edit', [PenjualanController::class, 'edit']);
 Route::post('/penjualan/{id}/update', [PenjualanController::class, 'update']);
 Route::get('/penjualan/{id}/delete', [PenjualanController::class, 'delete']);
+Route::get('/penjualan/{id}/invoice', [PenjualanController::class, 'invoice']);
 
 // ------------------laporan management------------------------------------
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);

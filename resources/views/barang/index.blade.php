@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('deskripsi') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Spesifikasi</label>
-                  <textarea type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="textHelp" placeholder="Masukan Spesifikasi Barang"> {{ old('deskripsi') }}</textarea>
+                  <textarea type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="textHelp" placeholder="Masukan Spesifikasi Barang">{{ old('deskripsi') }}</textarea>
                   @if($errors->has('deskripsi'))
                     <span class="help-block">{{ $errors->first('deskripsi') }}</span>
                   @endif
