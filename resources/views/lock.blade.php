@@ -20,11 +20,15 @@
                     <h1 class="sr-only">Klorofil - Free Bootstrap dashboard</h1>
                     <div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
                     <div class="user text-center">
+                        @if($user->avatar)
                         <img src="/storage/{{ auth()->user()->avatar }}" class="img-circle" alt="Avatar" style="width:100px;height:100px;">
+                        @else 
+                        <img src="img/profile.png" class="img-circle" alt="Avatar" style="width:100px;height:100px;">
+                        @endif
                         <h2 class="name">{{ auth()->user()->name }}</h2>
                         <p class="text-center">{{ auth()->user()->role }}</p>
                     </div>
-                    <form action="" method="post">
+                    <form action="/lock" method="post">
                         @csrf
                         <div class="input-group">
                             <input type="password" class="form-control" placeholder="Enter Admin PIN ..." name="pin" id="pin">

@@ -42,9 +42,11 @@ class LoginController extends Controller
 
     // public function index_lock()
     // {
+    //     $pin = null;
     //     return view('lock', [
     //         'title' => 'Login',
-    //         'active' => 'login'
+    //         'active' => 'login',
+    //         'pin' => $pin
     //     ]);
     // }
 
@@ -53,6 +55,11 @@ class LoginController extends Controller
     //     $credentials = $request->validate([
     //         'pin' => 'required'
     //     ]);
+    //     if('pin' == 12345) {
+    //         return redirect('/');
+    //     }else {
+    //         return redirect('/login');
+    //     }
         
 
     // }

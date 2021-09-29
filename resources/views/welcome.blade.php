@@ -14,18 +14,18 @@
                     <h1>Welcome Admin, {{ auth()->user()->name }} 
                         @foreach ($data_user as $datas)
                         @if($datas->avatar)
-                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle inverted" alt="Avatar"></h1>
                         @else
-                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle inverted" alt="Avatar"></h1>
                         @endif
                         @endforeach
                     @else 
                     <h1>Welcome User, {{ auth()->user()->name }}
                         @foreach ($data_user as $datas)
                         @if($datas->avatar)
-                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        <img src="/storage/{{ auth()->user()->avatar }}" style="width:40px;height:40px;" class="img-circle inverted" alt="Avatar"></h1>
                         @else
-                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle" alt="Avatar"></h1>
+                        <img src="img/profile.png" style="width:40px;height:40px;" class="img-circle inverted" alt="Avatar"></h1>
                         @endif
                         @endforeach
                     @endif
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="metric">
-                                <span class="icon"><i class="fa fa-archive"></i></span>
+                                <span class="icon inverted"><i class="fa fa-archive"></i></span>
                                 <p>
                                     <span class="number">{{ $bar }}</span>
                                     <span class="title">Total Data Barang</span><br>
                                     @if (auth()->user()->role == "Karyawan Admin")
-                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/barang" role="button">View Data</a></span>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted" href="/barang" role="button">View Data</a></span>
                                     @endif
                                     
                                 </p>
@@ -53,36 +53,36 @@
                         
                         <div class="col-md-3">
                             <div class="metric">
-                                <span class="icon"><i class="fa fa-shopping-cart"></i></span>
+                                <span class="icon"><i class="fa fa-shopping-cart inverted"></i></span>
                                 <p>
                                     <span class="number">{{ $penj }}</span>
                                     <span class="title">Total Data Penjualan</span><br>
                                     @if (auth()->user()->role == "Karyawan Admin")
-                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/penjualan" role="button">View Data</a></span>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted" href="/penjualan" role="button">View Data</a></span>
                                     @endif
                                 </p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="metric">
-                                <span class="icon"><i class="fa fa-list-ul"></i></span>
+                                <span class="icon"><i class="fa fa-list-ul inverted"></i></span>
                                 <p>
                                     <span class="number">{{ $lap }}</span>
                                     <span class="title">Total Data Laporan</span><br>
                                     @if (auth()->user()->role == "Karyawan Admin")
-                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/laporan" role="button">View Data</a></span>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted" href="/laporan" role="button">View Data</a></span>
                                     @endif
                                 </p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="metric">
-                                <span class="icon"><i class="fa fa-users"></i></span>
+                                <span class="icon"><i class="fa fa-users inverted"></i></span>
                                 <p>
                                     <span class="number">{{ $user }}</span>
                                     <span class="title">Total User</span><br>
                                     @if (auth()->user()->role == "Karyawan Admin")
-                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm" href="/user" role="button">View Data</a></span>
+                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted" href="/user" role="button">View Data</a></span>
                                     @endif
                                 </p>
                             </div>

@@ -89,9 +89,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <a name="Cancel"  class="btn btn-primary" href="/penjualan" role="button">Kembali</a>
+                            <a name="Cancel"  class="btn btn-primary inverted" href="/penjualan" role="button">Kembali</a>
                             &nbsp;
-                            <a name="Cancel"  class="btn btn-success" href="#" role="button"><i class="fa fa-print"></i> Print</a>
+                            <a name="Cancel"  class="btn btn-success inverted" href="#" role="button"><i class="fa fa-print"></i> Print</a>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <h2>Data User</h2>
-                            <h3  class="panel-title">Current Status User : {{ auth()->user()->name }} <span class="label label-success">Active</span></h3>
+                            <h3  class="panel-title">Current Status User : {{ auth()->user()->name }} <span class="label label-success inverted">Active</span></h3>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>
@@ -41,9 +41,9 @@
                                         <td></td>
                                         <td scope="row" class="text-center">
                                             @if($user->avatar)
-                                            <img src="/storage/{{ $user->avatar }}" style="width:30px;height:30px;" class="img-circle" alt="Avatar">
+                                            <img src="/storage/{{ $user->avatar }}" style="width:30px;height:30px;" class="img-circle inverted" alt="Avatar">
                                             @else 
-                                            <img src="img/profile.png" style="width:30px;height:30px;" class="img-circle" alt="Avatar">
+                                            <img src="img/profile.png" style="width:30px;height:30px;" class="img-circle inverted" alt="Avatar">
                                             @endif
                                         </td>
                                         <td scope="row">{{ $user->name }}</td>
@@ -53,7 +53,7 @@
                                         <td scope="row"><span class="label label-primary inverted">{{ $user->role }}</span></td>
                                         <td scope="row"><a href="/user/{{ $user->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
                                             &nbsp;&nbsp;&nbsp;
-                                            <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-nama="{{ $user->name }}"><i class="fa fa-trash-o"></i> Delete</a>
+                                            <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $user->id }}" data-nama="{{ $user->name }}"><i class="fa fa-trash-o"></i> Delete</a>
                                         </td>
                                         {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
                                           Delete
@@ -149,8 +149,8 @@
                 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary inverted">Tambah</button>
         </form>
         </div>
       </div>

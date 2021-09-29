@@ -60,8 +60,8 @@
                             @error('barang_keluar')
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <button type="submit" class="btn btn-primary">Update</button>
-                            <a name="Cancel" id="" class="btn btn-primary" href="/barang" role="button">Cancel</a>
+                            <button type="submit" class="btn btn-primary inverted">Update</button>
+                            <a name="Cancel" id="" class="btn btn-primary inverted" href="/barang" role="button">Cancel</a>
                         </form>
                     </div> 
                 </div>

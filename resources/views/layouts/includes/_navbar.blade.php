@@ -9,7 +9,9 @@
         <form class="navbar-form navbar-left">
             <div class="input-group">
                 <input type="text" value="" class="form-control" placeholder="Search dashboard...">
-                <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+                <span class="input-group-btn"><button type="button" class="btn btn-primary inverted">Go</button> </span>&nbsp;&nbsp;  
+                <span class="input-group-btn"><button type="button" class="btn btn-default button inverted"><i class="lnr lnr-moon"></i> Dark Mode</button> </span>
+
             </div>
         </form>
         
@@ -18,7 +20,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                         <i class="lnr lnr-alarm"></i>
-                        <span class="badge bg-danger">5</span>
+                        <span class="badge bg-danger inverted">5</span>
                     </a>
                     <ul class="dropdown-menu notifications">
                         <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
@@ -40,9 +42,9 @@
                 </li>
                 <li class="dropdown">
 							@if($user->avatar)
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/storage/{{ auth()->user()->avatar }}" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/storage/{{ auth()->user()->avatar }}" class="img-circle inverted" alt="Avatar"> <span>{{ auth()->user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							@else 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/profile.png" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/profile.png" class="img-circle inverted" alt="Avatar"> <span>{{ auth()->user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             @endif
                     {{-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/storage/{{ auth()->user()->avatar }}" style="width:20px;height:20px;" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a> --}}
                     <ul class="dropdown-menu">

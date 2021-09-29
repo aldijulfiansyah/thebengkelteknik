@@ -46,8 +46,8 @@
                             @error('no_telp')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <button type="submit" class="btn btn-primary">Update</button>
-                            <a name="Cancel" id="" class="btn btn-primary" href="/perusahaan" role="button">Cancel</a>
+                            <button type="submit" class="btn btn-primary inverted">Update</button>
+                            <a name="Cancel" id="" class="btn btn-primary inverted" href="/perusahaan" role="button">Cancel</a>
                         </form>
                     </div> 
                 </div>
