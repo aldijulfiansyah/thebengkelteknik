@@ -16,7 +16,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {   $eco = null;
         $data_user = User::find(Auth::user());
         $banyak = DB::table('laporan')->sum('pemasukan');
         $banyaks = DB::table('laporan')->sum('pengeluaran');
@@ -24,6 +24,8 @@ class HomeController extends Controller
         $penj = DB::table('penjualan')->count();
         $bar = DB::table('barang')->count();
         $user = DB::table('users')->count();
+       
+
         return view('welcome',[
             'lap' => $lap,
             'penj' => $penj,
@@ -32,8 +34,11 @@ class HomeController extends Controller
             'title' => 'Home',
             'banyak' => $banyak,
             'banyaks' => $banyaks,
-            'data_user' => $data_user
+            'data_user' => $data_user,
+            'eco'=> $eco
         ]);
+
+        
     }
 
     /**

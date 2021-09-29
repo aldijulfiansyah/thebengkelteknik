@@ -93,18 +93,45 @@
                             <div id="headline-chart" class="ct-chart"></div>
                         </div>
                         <div class="col-md-3">
+                            @if ($banyak != 0)
                             <div class="weekly-summary text-right">
-                                <span class="number">Rp{{number_format($banyak) }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
+                                <span class="number">Rp{{ $eco = number_format($banyak) }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
                                 <span class="info-label">- Total Pemasukan</span>
                             </div>
+                            @else
                             <div class="weekly-summary text-right">
-                                <span class="number">Rp{{ number_format($banyaks) }}</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> {{ round(($banyaks/$banyak) *100) }}% dari Total Pemasukan</span>
+                                <span class="number">Rp {{ $eco = 0 }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
+                                <span class="info-label">- Total Pemasukan</span>
+                            </div>
+                            @endif
+                            
+                            
+                            @if ($banyak == 0)
+                            
+                            <div class="weekly-summary text-right">
+                                <span class="number">Rp {{ $eco = number_format($banyaks)}}</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> Total Pemasukan Still Rp 0</span>
                                 <span class="info-label">- Total Pengeluaran</span>
                             </div>
+
+                            @else
+                            
                             <div class="weekly-summary text-right">
+                                <span class="number">Rp{{ $eco = number_format($banyaks) }}</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> {{ $eco = round(($banyaks/$banyak) *100) }}% dari Total Pemasukan</span>
+                                <span class="info-label">- Total Pengeluaran</span>
+                            </div>
+                            @endif
+                            
+                            @if ($banyak == 0)
+                            <div class="weekly-summary text-right">
+                                <span class="number">Rp{{ $eco = 0 }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i>Not found any data selisih</span>
+                                <span class="info-label">- Selisih</span>
+                            @else
+                            </div><div class="weekly-summary text-right">
                                 <span class="number">Rp{{ number_format($banyak-$banyaks) }}</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> {{ round((($banyak-$banyaks)/$banyak) *100) }}% dari Total Pemasukan</span>
                                 <span class="info-label">- Selisih</span>
                             </div>
+                            @endif
+                           
                         </div>
                     </div>
                 </div>
