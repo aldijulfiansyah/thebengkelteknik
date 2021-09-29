@@ -44,8 +44,8 @@
                                             <td scope="row">{{ $barang->deskripsi }}</td>
                                             <td scope="row">{{ $barang->jumlah }}</td>
                                             <td scope="row">Rp {{ number_format($barang->harga) }}</td>
-                                            <td scope="row">{{ $barang->client_pt }}</td>
-                                            <td scope="row">{{ $barang->nama_client }}</td>
+                                            <td scope="row">{{ $barang->perusahaan->nama_pt}}</td>
+                                            <td scope="row">{{ $barang->customer->nama_agent }}</td>
                                             <td scope="row">{{ $barang->barang_keluar }}</td>
                                             <td scope="row">{{ $barang->jumlah - $barang->barang_keluar }}</td>
                                             <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>

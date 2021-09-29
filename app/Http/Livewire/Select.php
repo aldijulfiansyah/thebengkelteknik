@@ -1,17 +1,15 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\Customer;
 use App\Models\Barang;
 use Livewire\Component;
+use App\Models\Customer;
+use App\Models\Perusahaan;
 
 class Select extends Component
 {
 
-    public $customer;
-    public $nama_agent;
-    public $nama_pt;
-    public $agents;
+    public $perusahaan;
 
     public function render()
     {
@@ -19,7 +17,7 @@ class Select extends Component
         //     $this->agents = Customer::where('')
         // }
 
-        return view('livewire.select');
-        // ->withCustomers(Customer::orderBy('nama_pt')->get());
+        return view('livewire.select')
+        ->withPerusahaans(Perusahaan::orderBy('nama_pt')->get());
     }
 }

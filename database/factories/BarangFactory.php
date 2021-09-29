@@ -23,9 +23,7 @@ class BarangFactory extends Factory
     {
         return [
             'nama_barang' => $this->faker->word(),
-            'jumlah' => $this->faker->randomNumber(3, false),
-            'client_pt' => $this->faker->company(),
-            'nama_client' => $this->faker->firstNameMale()
+            'jumlah' => $this->faker->randomNumber(3, false)
         ];
     }
 }

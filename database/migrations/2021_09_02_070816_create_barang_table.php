@@ -18,8 +18,8 @@ class CreateBarangTable extends Migration
             $table->string('nama_barang');
             $table->bigInteger('jumlah');
             $table->double('harga');
-            $table->string('client_pt');
-            $table->string('nama_client');
+            $table->bigInteger('perusahaan_id');
+            $table->bigInteger('customer_id');
             $table->bigInteger('barang_keluar');
             $table->bigInteger('sisakeluar')->nullable();
             $table->timestamps();
