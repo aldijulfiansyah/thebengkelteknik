@@ -48,9 +48,9 @@
                                             <td scope="row">{{ $barang->nama_client }}</td>
                                             <td scope="row">{{ $barang->barang_keluar }}</td>
                                             <td scope="row">{{ $barang->jumlah - $barang->barang_keluar }}</td>
-                                            <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                            <td scope="row"><a href="/barang/{{ $barang->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
                                               &nbsp;&nbsp;&nbsp;
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $barang->id }}" data-nama="{{ $barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $barang->id }}" data-nama="{{ $barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                             {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
                                               Delete
@@ -107,7 +107,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Harga/Pcs</label> <br>
-                  <span style="float:left" class="label label-danger">Rp</span>
+                  <span style="float:left" class="label label-danger inverted">Rp</span>
                   <input name="harga" type="number" class="form-control" id="harga" aria-describedby="textHelp" placeholder="Masukan Harga Barang per Pcs" value="{{ old('harga','0') }}">
                   @if($errors->has('harga'))
                     <span class="help-block">{{ $errors->first('harga') }}</span>
@@ -126,8 +126,8 @@
                 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary inverted">Tambah</button>
         </form>
         </div>
       </div>

@@ -13,10 +13,10 @@
 								<!-- PROFILE HEADER -->
 								<div class="profile-header">
 									<div class="overlay"></div>
-									<div class="profile-main">
+									<div class="profile-main inverted">
 									@foreach ($data_user as $user)
 										@if($user->avatar)
-										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle inverted" alt="Avatar">
+										<img src="/storage/{{ auth()->user()->avatar }}" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
 										@else 
 										<img src="img/profile.png" style="width:100px;height:100px;" class="img-circle" alt="Avatar">
 										@endif
@@ -57,7 +57,7 @@
 									@foreach ($data_user as $user)
 									
 									<input type="file" name="avatar" id="avatar" style="opacity:0;height:1px;display:none">
-									<div class="text-center"><button class="btn btn-primary" id="change_avatar">Changed Avatar</button></div>
+									<div class="text-center"><button class="btn btn-primary inverted" id="change_avatar">Changed Avatar</button></div>
 									
 									@endforeach
 								</div>
@@ -98,7 +98,7 @@
 									@error('email')
 									<div class="alert alert-danger">{{ $message }}</div>
 									@enderror
-								<button type="submit" class="btn btn-primary">Update Profile</button>
+								<button type="submit" class="btn btn-primary inverted">Update Profile</button>
 								
 								<br>
 								<br>
@@ -135,7 +135,7 @@
 									<div class="alert alert-danger">{{ $message }}</div>
 									@enderror
 									
-								<button type="submit" class="btn btn-primary">Change Password</button>
+								<button type="submit" class="btn btn-primary inverted">Change Password</button>
 							</form>
 							<br>
 							@if(session()->has('success'))

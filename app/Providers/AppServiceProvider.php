@@ -27,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.includes._navbar', function ($view) {
             $view->with('user', Auth::user());
         });
+        view()->composer('lock', function ($view) {
+            $view->with('user', Auth::user());
+        });
     }
 }

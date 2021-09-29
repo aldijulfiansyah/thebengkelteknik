@@ -41,9 +41,9 @@
                                             <td scope="row">{{ $perusahaan->kota }}</td>
                                             <td scope="row">{{ $perusahaan->email }}</td>
                                             <td scope="row">{{ $perusahaan->no_telp }}</td>
-                                            <td scope="row"><a href="/perusahaan/{{ $perusahaan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                            <td scope="row"><a href="/perusahaan/{{ $perusahaan->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
                                               &nbsp;&nbsp;&nbsp;
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $perusahaan->id }}" data-nama="{{ $perusahaan->nama_pt }}"><i class="fa fa-trash-o"></i> Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $perusahaan->id }}" data-nama="{{ $perusahaan->nama_pt }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -110,8 +110,8 @@
                 </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary inverted">Tambah</button>
         </form>
         </div>
       </div>

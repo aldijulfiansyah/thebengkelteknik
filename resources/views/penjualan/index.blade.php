@@ -43,11 +43,11 @@
                                             <td scope="row">Rp {{ number_format($penjualan->barang->harga) }}</td>
                                             <td scope="row">RP {{ number_format($penjualan->barang->harga*$penjualan->jumlah)  }}</td>
                                             <td scope="row">
-                                              <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                              <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
                                               &nbsp;&nbsp;&nbsp;
-                                              <a href="/penjualan/{{ $penjualan->id }}/invoice" class="btn btn-success btn-sm">Invoice</a>
+                                              <a href="/penjualan/{{ $penjualan->id }}/invoice" class="btn btn-success btn-sm inverted">Invoice</a>
                                               &nbsp;&nbsp;&nbsp;
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -104,8 +104,8 @@
                 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary inverted">Tambah</button>
         </form>
         </div>
       </div>

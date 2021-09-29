@@ -1762,13 +1762,13 @@ ul.activity-timeline > li {
     border: 1px solid #CCC; }
 
 
-    /* .dark-mode {
+    .dark-mode {
       filter: invert(1) hue-rotate(180deg)
     }
 
     .invert {
       filter: invert(1) hue-rotate(180deg)
-    } */
+    }
 
     
 

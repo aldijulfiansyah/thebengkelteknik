@@ -50,9 +50,9 @@
                                         <td scope="row">{{ $laporan->keterangan }}</td>
                                         <td scope="row">Rp{{ number_format($laporan->pemasukan) }}</td>
                                         <td scope="row">Rp{{ number_format($laporan->pengeluaran) }}</td>
-                                        <td scope="row"><a href="/laporan/{{ $laporan->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Edit</a></td>
+                                        <td scope="row"><a href="/laporan/{{ $laporan->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a></td>
                                             <td>
-                                              <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $laporan->id }}" data-ket="{{ $laporan->keterangan }}"><i class="fa fa-trash-o"></i> Delete</a>
+                                              <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $laporan->id }}" data-ket="{{ $laporan->keterangan }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
                                        
                                         {{-- <button type="button" name="del" class="btn btn-danger btn-sm" data-toggle="modal" data-value="{{ $barang->id }}" data-target="#modald">
@@ -105,7 +105,7 @@
             <br>
             <div class="form-group {{ $errors->has('pemasukan') ? 'has-error' : '' }}">
               <label for="" class="control-label">Pemasukan</label> <br>
-              <span style="float:left" class="label label-danger">Rp</span>
+              <span style="float:left" class="label label-danger inverted">Rp</span>
               <input name="pemasukan" type="number" class="form-control" id="pemasukan" aria-describedby="textHelp" placeholder="Masukan Pemasukan" value="{{ old('pemasukan','0') }}">
               @if($errors->has('pemasukan'))
                 <span class="help-block">{{ $errors->first('pemasukan') }}</span>
@@ -114,7 +114,7 @@
             <br>
             <div class="form-group {{ $errors->has('pengeluaran') ? 'has-error' : '' }}">
               <label for="" class="form-label">Pengeluaran</label> <br>
-              <span style="float:left" class="label label-danger">Rp</span>
+              <span style="float:left" class="label label-danger inverted">Rp</span>
               <input name="pengeluaran" type="number" class="form-control" id="pengeluaran" aria-describedby="textHelp" placeholder="Masukan Pengeluaran" value="{{ old('pengeluaran','0') }}">
               @if($errors->has('pengeluaran'))
                 <span class="help-block">{{ $errors->first('pengeluaran') }}</span>
@@ -123,8 +123,8 @@
             
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="submit" class="btn btn-primary">Tambah</button>
+      <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary inverted">Tambah</button>
     </form>
     </div>
   </div>
