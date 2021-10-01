@@ -71,6 +71,8 @@ Route::post('/barang/create', [BarangController::class, 'create']);
 Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::post('/barang/{id}/update', [BarangController::class, 'update']);
 Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
+// Route::get('/list_customer/{perusahaan_id}', [BarangController::class,'listCustomer']);
+Route::get('/GetCustomer/{id}', [BarangController::class,'GetCustomer']);
 
 // ------------------penjualan management------------------------------------
 Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);

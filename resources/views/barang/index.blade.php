@@ -10,6 +10,7 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h2>Data Barang</h2>
+                                @livewire('select')
                                 <div class="right">
                                       <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                           <i class="lnr lnr-plus-circle"></i>
@@ -115,7 +116,25 @@
                   @endif
                 </div>
                 
-                  @livewire('select')
+                <div class="form-group">
+                  <label for="" class="form-label">Perusahaan</label>  
+                  <select class="form-control" style="width: 100%;" name="perusahaan" id="perusahaan" required>
+                      <option value="">- Pilih Perusahaan -</option>
+                      @foreach ($data_perusahaan as $item) 
+                      <option value="{{ $item->id }}" >{{ $item->nama_pt }}</option>
+                      @endforeach
+                  </select>
+                </div>
+
+                <div class="form-group">
+                <label for="" class="form-label">Customer</label>  
+                  <select class="form-control" placeholder="pilih customer" style="width: 100%;" name="customer" id="customer">
+                    
+                    {{-- @foreach ($data_customer as $item) 
+                    <option value="{{ $item->id }}" >{{ $item->nama_agent }}</option>
+                    @endforeach --}}
+                  </select>
+                </div>
               
                 <div class="form-group {{ $errors->has('barang_keluar') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Barang Keluar</label>
@@ -128,7 +147,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary inverted" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary inverted">Tambah</button>
+          <button id="tambah" type="submit" class="btn btn-primary inverted">Tambah</button>
         </form>
         </div>
       </div>
@@ -205,6 +224,140 @@ $('.delete').click(function(){
 });
 
 });
+
+$(document).ready(function() {
+            $('#perusahaan').on('change', function() {
+                var getPtId = $(this).val();
+                if(getPtId) {
+                    $.ajax({
+                        url: '/GetCustomer/'+getPtId,
+                        type: "GET",
+                        data : {"_token":"{{ csrf_token() }}"},
+                        dataType: "json",
+                        success:function(data) {
+                            //console.log(data);
+                          if(data){
+                            $('#customer').empty();
+                            $('#customer').focus;
+                            $('#customer').append('<option value="">-- Pilih Customer --</option>'); 
+                            $.each(data, function(key, value){
+                            $('select[name="customer"]').append('<option value="'+ key +'">' + value.nama_agent+ '</option>');
+                        });
+                      }else{
+                        $('#customer').empty();
+                      }
+                      }
+                    });
+                }else{
+                  $('#customer').empty();
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $(document).ready(function () {
+//                 $('#perusahaan').on('change', function () {
+//                 let id = $(this).val();
+//                 $('#customer').empty();
+//                 $('#customer').append(`<option value="0" disabled selected>Processing...</option>`);
+//                 $.ajax({
+//                 type: 'GET',
+//                 url: "{{url('')}}/GetCustomer/" + id,
+//                 success: function (response) {
+//                 var response = JSON.parse(response);
+//                 console.log(response);   
+//                 $('#customer').empty();
+//                 $('#customer').append(`<option value="0" disabled selected>Select Customer*</option>`);
+//                 response.forEach(element => {
+//                     $('#customer').append(`<option value="${element['customer_id']}">${element['nama_agent']}</option>`);
+//                     });
+//                 }
+//             });
+//         });
+//     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function updateCustomer() {
+    //     let  perusahaan = $('#perusahaan').val()
+    //     $('#customer').children().remove()
+    //     $('#customer').val('');
+    //     $('#customer').append('<option value="">- Pilih Customer -</option>');
+    //     $('#customer').prop('disabled',true)
+        
+    //     if (perusahaan!='' && perusahaan!=null) {
+    //           $.ajax({
+    //             url:"{{url('')}}/list_customer/"+perusahaan,
+    //             success:function(res){
+    //               $('#customer').prop('disabled',false)
+    //               let tampilan_option = '';
+    //               $.each(res,function (index,data) {
+    //                 tampilan_option+='<option value="'+data.id+'">'+data.nama_agent+'</option>'
+    //               })
+    //               $('#customer').append(tampilan_option)
+    //             }
+    //         });
+    //     }
+        
+    //   }
+
+    //   function updateItem() {
+    //     let customer = $("#customer").val();
+    //     if (customer!='' && customer!=null) {
+    //       $.ajax({
+    //       url:"{{url('')}}/list_item/"+customer,
+    //         success: function (res) {
+    //         console.log(res)
+    //         }
+    //       })
+    //     }
+        
+    //   }
+
+
+
 
 
   </script>

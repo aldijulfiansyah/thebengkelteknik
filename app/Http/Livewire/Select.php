@@ -6,18 +6,33 @@ use Livewire\Component;
 use App\Models\Customer;
 use App\Models\Perusahaan;
 
+
+
 class Select extends Component
 {
 
-    public $perusahaan;
+    public $perusahaans;
+    public $customers;
 
+    public $selectedPerusahaan = NULL;
+    
+    public function mount()
+    {
+        $this->perusahaans = Perusahaan::all();
+        $this->customers = collect();
+    }
+    
     public function render()
     {
-        // if(!empty($this->nama_pt)){
-        //     $this->agents = Customer::where('')
-        // }
-
-        return view('livewire.select')
-        ->withPerusahaans(Perusahaan::orderBy('nama_pt')->get());
+    
+    return view('livewire.select');
+    }
+    
+    public function updatedSelectedPerusahaan($perusahaan)
+    {
+        if (!is_null($perusahaan)){
+        $this->customers = Customer::where('perusahaan_id', $perusahaan)->get();
+        }
+    
     }
 }
