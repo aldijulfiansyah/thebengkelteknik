@@ -43,6 +43,8 @@ class BarangController extends Controller
             'jumlah'=>'required',
             'harga'=>'required',
             'barang_keluar'=>'required',
+            'perusahaan_id' => 'required',
+            'customer_id' => 'required'
             
         ],
         [

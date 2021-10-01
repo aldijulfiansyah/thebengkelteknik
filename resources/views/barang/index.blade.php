@@ -118,21 +118,21 @@
                 
                 <div class="form-group">
                   <label for="" class="form-label">Perusahaan</label>  
-                  <select class="form-control" style="width: 100%;" name="perusahaan" id="perusahaan" required>
+                  <select class="form-control" style="width: 100%;" name="perusahaan_id" id="perusahaan_id" required>
                       <option value="">- Pilih Perusahaan -</option>
                       @foreach ($data_perusahaan as $item) 
-                      <option value="{{ $item->id }}" >{{ $item->nama_pt }}</option>
+                      <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
                       @endforeach
                   </select>
                 </div>
 
                 <div class="form-group">
                 <label for="" class="form-label">Customer</label>  
-                  <select class="form-control" placeholder="pilih customer" style="width: 100%;" name="customer" id="customer">
+                  <select class="form-control" placeholder="pilih customer" style="width: 100%;" name="customer_id" id="customer_id">
                     
-                    {{-- @foreach ($data_customer as $item) 
+                    @foreach ($data_customer as $item) 
                     <option value="{{ $item->id }}" >{{ $item->nama_agent }}</option>
-                    @endforeach --}}
+                    @endforeach
                   </select>
                 </div>
               
@@ -225,34 +225,34 @@ $('.delete').click(function(){
 
 });
 
-$(document).ready(function() {
-            $('#perusahaan').on('change', function() {
-                var getPtId = $(this).val();
-                if(getPtId) {
-                    $.ajax({
-                        url: '/GetCustomer/'+getPtId,
-                        type: "GET",
-                        data : {"_token":"{{ csrf_token() }}"},
-                        dataType: "json",
-                        success:function(data) {
-                            //console.log(data);
-                          if(data){
-                            $('#customer').empty();
-                            $('#customer').focus;
-                            $('#customer').append('<option value="">-- Pilih Customer --</option>'); 
-                            $.each(data, function(key, value){
-                            $('select[name="customer"]').append('<option value="'+ key +'">' + value.nama_agent+ '</option>');
-                        });
-                      }else{
-                        $('#customer').empty();
-                      }
-                      }
-                    });
-                }else{
-                  $('#customer').empty();
-                }
-            });
-        });
+// $(document).ready(function() {
+//             $('#perusahaan_id').on('change', function() {
+//                 var getPtId = $(this).val();
+//                 if(getPtId) {
+//                     $.ajax({
+//                         url: '/GetCustomer/'+getPtId,
+//                         type: "GET",
+//                         data : {"_token":"{{ csrf_token() }}"},
+//                         dataType: "json",
+//                         success:function(data) {
+//                             //console.log(data);
+//                           if(data){
+//                             $('#customer_id').empty();
+//                             $('#customer_id').focus;
+//                             $('#customer_id').append('<option value="">-- Pilih Customer --</option>'); 
+//                             $.each(data, function(key, value){
+//                             $('select[name="customer_id"]').append('<option value="'+ key +'">' + value.nama_agent+ '</option>');
+//                         });
+//                       }else{
+//                         $('#customer_id').empty();
+//                       }
+//                       }
+//                     });
+//                 }else{
+//                   $('#customer_id').empty();
+//                 }
+//             });
+//         });
 
 
 
