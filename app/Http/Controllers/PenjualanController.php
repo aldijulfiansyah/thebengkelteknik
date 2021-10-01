@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\InvoiceCode;
 use App\Models\Penjualan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,11 @@ class PenjualanController extends Controller
     {
         $data_penjualan = Penjualan::all();
         $bar = Barang::all();
+        $invoicecode = InvoiceCode::all();
         return view('penjualan.index', [
             'data_penjualan' => $data_penjualan,
             'bar' => $bar,
+            'invoicecode' => $invoicecode,
             'title' => 'Penjualan'
         ]);
     }

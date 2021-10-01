@@ -33,15 +33,18 @@
                                 <div class="col-xs-6">
                                     <address>
                                         Kepada Yth.<br>
-                                        <strong>{{ $data_penjualan->barang->client_pt }}</strong><br>
-                                        Jln Soekarno Hatta<br>
-                                        Bandung<br>
+                                        <strong>{{ $data_penjualan->barang->perusahaan->nama_pt }}</strong><br>
+                                        {{ $data_penjualan->barang->perusahaan->alamat }}<br>
+                                        {{ $data_penjualan->barang->perusahaan->kota }}<br>
+                                        No Telp : {{ $data_penjualan->barang->perusahaan->no_telp }}<br>
+                                        Email   : {{ $data_penjualan->barang->perusahaan->email }}<br>
                                     </address>
                                 </div>
                                 <div class="col-xs-6 text-right">
                                     <address>
-                                        No Invoice  :<br>
-                                        Tanggal     : {{ $data_penjualan->tanggal }}
+                                        No Invoice  : {{ $data_penjualan->full_number }}<br>
+                                        Tanggal     : {{ $data_penjualan->tanggal }}<br>
+                                        Agent : {{ $data_penjualan->barang->customer->nama_agent }}
                                     </address>
                                 </div>                              
                             </div>

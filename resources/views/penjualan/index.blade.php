@@ -25,6 +25,7 @@
                                     <thead>
                                         <tr>
                                           <th>No</th>
+                                          <th scope="col">No Invoice</th>
                                           <th scope="col">Tanggal</th>
                                           <th scope="col">Nama Barang</th>
                                           <th scope="col">Jumlah</th>
@@ -37,6 +38,7 @@
                                       @foreach ($data_penjualan as $penjualan)
                                         <tr>
                                             <td></td>
+                                            <td scope="row"><a href="/penjualan/{{ $penjualan->id }}/invoice" >{{ $penjualan->full_number}}</a></td>
                                             <td scope="row">{{ $penjualan->tanggal }}</td>
                                             <td scope="row">{{ $penjualan->barang->nama_barang }}</td>
                                             <td scope="row">{{ $penjualan->jumlah }}</td>
@@ -44,8 +46,6 @@
                                             <td scope="row">RP {{ number_format($penjualan->barang->harga*$penjualan->jumlah)  }}</td>
                                             <td scope="row">
                                               <a href="/penjualan/{{ $penjualan->id }}/edit" class="btn btn-warning btn-sm inverted"><i class="fa fa-pencil"></i> Edit</a>
-                                              &nbsp;&nbsp;&nbsp;
-                                              <a href="/penjualan/{{ $penjualan->id }}/invoice" class="btn btn-success btn-sm inverted">Invoice</a>
                                               &nbsp;&nbsp;&nbsp;
                                               <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $penjualan->id }}" data-nama="{{ $penjualan->barang->nama_barang }}"><i class="fa fa-trash-o"></i> Delete</a>
                                             </td>
@@ -68,7 +68,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penjualan</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -76,6 +76,16 @@
         <div class="modal-body">
             <form action="/penjualan/create" method="POST">
                 @csrf
+                <div class="form-group">
+                  <label for="" class="form-label">No Invoice</label>  
+                  <select class="form-control select2" style="width: 100%;" name="invoice_code_id" id="type" required>
+                      <option value="">- Kode Invoice -</option>
+                      @foreach ($invoicecode as $item) 
+                      <option value="{{ $item->id }}" >{{ $item->invoice_code }}</option>
+                      @endforeach
+                  </select>
+                </div>
+
                 <div class="form-group {{ $errors->has('tanggal') ? 'has-error' : '' }}">
                   <label for="" class="form-label">Tanggal</label>
                   <input name="tanggal" type="date" class="form-control" id="tanggal" aria-describedby="textHelp" placeholder="Masukan Tanggal" value="{{ old('tanggal') }}">

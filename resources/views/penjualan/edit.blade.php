@@ -10,6 +10,11 @@
                     <div class="panel-body">
                         <form action="/penjualan/{{ $penjualan->id }}/update" method="POST">
                             @csrf
+
+                            <div class="form-group">
+                                <label for="" class="form-label">No Invoice</label>  
+                                <input disabled name="full_number" type="text" class="form-control @error('full_number') is-invalid @enderror"  name="full_number" id="full_number" aria-describedby="textHelp" value="{{ old ('full_number',$penjualan->full_number) }}">
+                            </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Tanggal</label>
                                 <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror"  name="tanggal" id="tanggal" aria-describedby="textHelp" placeholder="Masukan Tanggal" value="{{ old ('tanggal',$penjualan->tanggal) }}">
