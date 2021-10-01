@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
                     <label for="role" class="form-label">Authorization</label>
-                    <select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Username"  value="{{ old('role') }}" required>
+                    <select class="form-control @error('role')is-invalid @enderror" id="role" name="role" placeholder="Authorization"  value="{{ old('role') }}" required>
                         <option value="">--Pilih Hak Akses--</option>
 						<option value="Karyawan Admin">1. Karyawan Admin</option>
 						<option value="Karyawan User">2. Karyawan User</option>
