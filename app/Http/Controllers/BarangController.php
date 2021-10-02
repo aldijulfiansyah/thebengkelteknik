@@ -57,7 +57,7 @@ class BarangController extends Controller
         ]
     );
 
-        
+        // @dd($request->all());
         Barang::create($request->all());
         
         Alert::success('Ditambahkan', 'Data Berhasil Ditambahkan');
