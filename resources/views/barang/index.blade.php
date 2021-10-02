@@ -10,7 +10,7 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h2>Data Barang</h2>
-                                @livewire('select')
+                                {{-- @livewire('select') --}}
                                 <div class="right">
                                       <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                           <i class="lnr lnr-plus-circle"></i>

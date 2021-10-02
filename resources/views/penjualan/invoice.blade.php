@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="invoice-title" style="margin-top: 70px;">
-                                        <img src="{{ asset('admin/assets/img/stt.png')}}" class="logo">                       
+                                        <img src="{{ asset('admin/assets/img/invv.png')}}" class="logo">                       
                                     </div>
                                 </div>
                                 <div class="col-xs-6 text-right" style="margin-top: 40px;">
@@ -32,7 +32,7 @@
                                 </div>                                           
                                 <div class="col-xs-6">
                                     <address>
-                                        Kepada Yth.<br>
+                                        Kepada Yth. Bpk {{ $data_penjualan->barang->customer->nama_agent }}<br>
                                         <strong>{{ $data_penjualan->barang->perusahaan->nama_pt }}</strong><br>
                                         {{ $data_penjualan->barang->perusahaan->alamat }}<br>
                                         {{ $data_penjualan->barang->perusahaan->kota }}<br>
@@ -44,7 +44,6 @@
                                     <address>
                                         No Invoice  : {{ $data_penjualan->full_number }}<br>
                                         Tanggal     : {{ $data_penjualan->tanggal }}<br>
-                                        Agent : {{ $data_penjualan->barang->customer->nama_agent }}
                                     </address>
                                 </div>                              
                             </div>
