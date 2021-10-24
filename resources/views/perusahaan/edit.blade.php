@@ -34,14 +34,14 @@
                             @enderror
                             <div class="form-group">
                                 <label for="" class="form-label">Email</label>
-                                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror"  name="email" id="email" aria-describedby="textHelp" placeholder="Masukan Email" value="{{ old ('email',$perusahaan->email) }}">
+                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"  name="email" id="email" aria-describedby="textHelp" placeholder="Masukan Email" value="{{ old ('email',$perusahaan->email) }}">
                             </div>
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="" class="form-label">No Telp</label>
-                                <input name="no_telp" type="text" class="form-control @error('no_telp') is-invalid @enderror"  name="no_telp" id="no_telp" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('no_telp',$perusahaan->no_telp) }}">
+                                <input name="no_telp" type="number" class="form-control @error('no_telp') is-invalid @enderror"  name="no_telp" id="no_telp" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('no_telp',$perusahaan->no_telp) }}">
                             </div>
                             @error('no_telp')
                                 <div class="alert alert-danger">{{ $message }}</div>

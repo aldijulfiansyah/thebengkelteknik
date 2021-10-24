@@ -12,12 +12,17 @@
                             @csrf
                             
                             <div class="form-group">
-                              <label for="" class="form-label">Perusahaan</label>
-                              <input name="nama_pt" type="text" class="form-control @error('nama_pt') is-invalid @enderror"  name="nama_pt" id="nama_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old ('nama_pt',$customer->nama_pt) }}">
+                                <label for="" class="form-label">Nama Perusahaan</label>  
+                                <select class="form-control select2" style="width: 100%;" name="perusahaan_id" id="perusahaan_id">
+                                    <option disabled value>- Pilih Perusahaan -</option>
+                                    <option value="{{ $customer->perusahaan_id }}">{{ $customer->perusahaan->nama_pt }}</option>
+                                    @foreach ($data_perusahaan as $item) 
+                                    <option value="{{ $item->id }}" >{{ $item->nama_pt }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            @error('nama_pt')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+
+                            
                             <div class="form-group">
                                 <label for="" class="form-label">Nama Agent</label>
                                 <input name="nama_agent" type="text" class="form-control @error('nama_agent') is-invalid @enderror"  name="nama_agent" id="nama_agent" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('nama_agent',$customer->nama_agent) }}">
@@ -27,20 +32,20 @@
                             @enderror
                             <div class="form-group">
                                 <label for="" class="form-label">Email</label>
-                                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror"  name="email" id="email" aria-describedby="textHelp" placeholder="Masukan Email" value="{{ old ('email',$customer->email) }}">
+                                <input name="email_agent" type="email" class="form-control @error('email_agent') is-invalid @enderror"  name="email_agent" id="email" aria-describedby="textHelp" placeholder="Masukan Email" value="{{ old ('email_agent',$customer->email_agent) }}">
                             </div>
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="" class="form-label">No Telp</label>
-                                <input name="no_telp" type="text" class="form-control @error('no_telp') is-invalid @enderror"  name="no_telp" id="no_telp" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('no_telp',$customer->no_telp) }}">
+                                <input name="no_telp_agent" type="number" class="form-control @error('no_telp_agent') is-invalid @enderror"  name="no_telp_agent" id="no_telp_agent" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('no_telp_agent',$customer->no_telp_agent) }}">
                             </div>
-                            @error('no_telp')
+                            @error('no_telp_agent')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <button type="submit" class="btn btn-primary inverted">Update</button>
-                            <a name="Cancel" id="" class="btn btn-primary" href="/customer inverted" role="button">Cancel</a>
+                            <a name="Cancel" id="" class="btn btn-primary" href="/customer" role="button">Cancel</a>
                         </form>
                     </div> 
                 </div>

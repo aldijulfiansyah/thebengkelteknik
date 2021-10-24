@@ -29,6 +29,25 @@ class PerusahaanController extends Controller
      */
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama_pt'=>'required|min:3',
+            'alamat'=>'required',
+            'kota'=>'required',
+            'email'=>'required|email',
+            'no_telp'=>'required|min:6',
+            
+        ],
+        [
+            'nama_pt.required' => 'Nama barang harus diisi !',
+            'nama_barang.min' => 'Nama barang minimal 4 karakter !',
+            'alamat.required' => 'Jumlah barang harus diisi !',
+            'kota.required' => 'Nama kota wajib diisi !',
+            'email.required' => 'Nama perusahaan harus diisi !',
+            'no_telp.required' => 'Nomer Telepon Harus Diisi !',
+            'no_telp.min'   => 'Nomer Telepon harus lebih dari 6'
+            
+        ]
+    );
         
         Perusahaan::create($request->all());
 
@@ -47,28 +66,24 @@ class PerusahaanController extends Controller
     }
     public function update(Request $request,$id)
     {
-    //     $this->validate($request,[
-    //         'nama_barang'=>'required|min:4',
-    //         'jumlah'=>'required',
-    //         'harga'=>'required',
-    //         'client_pt'=>'required|min:5',
-    //         'nama_client'=>'required|regex:/^[a-zA-Z ]+$/|min:4',
-    //         'barang_keluar'=>'required',
-    //     ],
-    //     [
-    //         'nama_barang.required' => 'Nama barang harus diisi !',
-    //         'nama_barang.min' => 'Nama barang minimal 4 karakter !',
-    //         'jumlah.required' => 'Jumlah barang harus diisi !',
-    //         'harga.required' => 'Harga barang/pcs harus diisi !',
-    //         'barang_keluar.required' => 'Jumlah barang keluar harus diisi!,...jika tidak ada maka barang keluar isi dengan nilai kosong ( 0 ) !',
-    //         'client_pt.required' => 'Nama perusahaan harus diisi !',
-    //         'client_pt.min' => 'Nama perusahaan minimal 5 karakter !',
-    //         'nama_client.required' => 'Nama agent perusahaan harus diisi !',
-    //         'nama_client.min' => 'Nama agent minimal 4 karakter !',
-    //         'nama_client.regex' => 'Nama agent tidak boleh ada angka atau simbol !'
-    //     ]
+        $this->validate($request,[
+            'nama_pt'=>'required|min:3',
+            'alamat'=>'required',
+            'kota'=>'required',
+            'email'=>'required|email',
+            'no_telp'=>'required|min:6',
+        ],
+        [
+            'nama_pt.required' => 'Nama perusahaan harus diisi !',
+            'nama_barang.min' => 'Nama perusahaan minimal 3 karakter !',
+            'alamat.required' => 'alamat harus diisi !',
+            'kota.required' => 'Nama kota harus diisi !',
+            'email.required' => 'Email harus diisi !',
+            'no_telp.required' => 'Nomer Telepon Harus Diisi !',
+            'no_telp.min'   => 'Nomer Telepon harus lebih dari 6'
+        ]
     
-    // );
+    );
 
         $perusahaan = Perusahaan::find($id);
         $perusahaan->update($request->all());

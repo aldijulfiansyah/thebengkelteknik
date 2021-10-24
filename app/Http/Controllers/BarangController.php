@@ -40,6 +40,7 @@ class BarangController extends Controller
     {
         $this->validate($request,[
             'nama_barang'=>'required|min:4',
+            'deskripsi'=>'required',
             'jumlah'=>'required',
             'harga'=>'required',
             'barang_keluar'=>'required',
@@ -81,9 +82,9 @@ class BarangController extends Controller
     {
         $this->validate($request,[
             'nama_barang'=>'required|min:4',
+            'deskripsi'=>'required',
             'jumlah'=>'required',
             'harga'=>'required',
-            'client_pt'=>'required|min:5',
             'barang_keluar'=>'required',
         ],
         [
