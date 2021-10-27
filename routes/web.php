@@ -39,7 +39,7 @@ use App\Http\Controllers\PerusahaanController;
 // });
 
 // -------------------dashboard admin-------------------------------------
-Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
 
 
 
@@ -101,6 +101,7 @@ Route::get('/user/{id}/delete', [UserController::class, 'delete']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/userhome', [LoginController::class, 'index_user']);
 // Route::get('/lock', [LoginController::class, 'index_lock']);
 // Route::post('/lock', [LoginController::class, 'auth_admin']);
 

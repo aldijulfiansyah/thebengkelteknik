@@ -23,21 +23,30 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/');
-        }
-
         // if(Auth::attempt($credentials)) {
-        //     if (auth()->user()->role == "Karyawan Admin") {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/lock');
-        //     }else {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/');
-        //     }
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/');
         // }
+
+        if(Auth::attempt($credentials)) {
+            if (auth()->user()->role == "Karyawan User") {
+                $request->session()->regenerate();
+                return redirect()->intended('/userhome');
+            }else {
+                $request->session()->regenerate();
+                return redirect()->intended('/');
+            }
+        }
         return back()->with('loginError', 'Login Gagal');
+    }
+
+    public function index_user()
+    {
+        
+        return view('userhome', [
+            'title' => 'User Home',
+            'active' => 'login',
+        ]);
     }
 
     // public function index_lock()
