@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,21 +24,33 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/');
-        }
-
         // if(Auth::attempt($credentials)) {
-        //     if (auth()->user()->role == "Karyawan Admin") {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/lock');
-        //     }else {
-        //         $request->session()->regenerate();
-        //         return redirect()->intended('/');
-        //     }
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/');
         // }
+
+        if(Auth::attempt($credentials)) {
+            if (auth()->user()->role == "Karyawan User") {
+                $request->session()->regenerate();
+                return redirect()->intended('/userhome');
+            }else {
+                $request->session()->regenerate();
+                return redirect()->intended('/');
+            }
+        }
         return back()->with('loginError', 'Login Gagal');
+    }
+
+    public function index_user()
+    {$eco = null;
+     $data_user = User::find(Auth::user());
+        
+        return view('userhome', [
+            'title' => 'User Home',
+            'active' => 'userhome',
+            'data_user' => $data_user,
+            'eco'=> $eco
+        ]);
     }
 
     // public function index_lock()

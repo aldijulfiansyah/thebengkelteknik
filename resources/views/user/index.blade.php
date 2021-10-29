@@ -10,7 +10,7 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <h2>Data User</h2>
-                            <h3  class="panel-title">Current Status User : {{ auth()->user()->name }} <span class="label label-success inverted">Active</span></h3>
+                            <h3  class="panel-title">Current Status User : <b>{{ auth()->user()->name }}</b> <span class="label label-success inverted">Active</span></h3>
                             <div class="right">
                                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                       <i class="lnr lnr-plus-circle"></i>

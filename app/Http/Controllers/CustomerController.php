@@ -25,27 +25,22 @@ class CustomerController extends Controller
 
     public function create(Request $request)
     {
-        // $this->validate(
-        //     $request,
-        //     [
-        //         'nama_pt' => 'required|min:5',
-        //         'nama_agent' => 'required|min:5',
-        //         'alamat' => 'required',
-        //         'kota' => 'required',
-        //         'email' => 'required',
-        //         'no_telp' => 'required',
-        //     ],
-        //     [
-        //         'nama_pt.required' => 'Nama Perusahaan harus diisi !',
-        //         'nama_pt.min' => 'Nama Perushaan minimal 5 karakter !',
-        //         'nama_agent.required' => 'Nama Agent harus diisi !',
-        //         'nama_agent.min' => 'Nama Agent minimal 5 karakter !',
-        //         'alamat.required' => 'Alamat harus diisi !',
-        //         'kota.required' => 'Kota harus diisi !',
-        //         'email.required' => 'Email harus diisi!',
-        //         'no_telp.required' => 'No Telepon harus diisi !'
-        //     ]
-        // );
+        $this->validate(
+            $request,
+            [
+                
+                'nama_agent' => 'required|min:4',
+                'email_agent' => 'required|email',
+                'no_telp_agent' => 'required',
+            ],
+            [
+                
+                'nama_agent.required' => 'Nama Agent harus diisi !',
+                'nama_agent.min' => 'Nama Agent minimal 4 karakter !',
+                'email_agent.required' => 'Email harus diisi!',
+                'no_telp_agent.required' => 'No Telepon harus diisi !'
+            ]
+        );
 
         Customer::create($request->all());
 
@@ -56,37 +51,32 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        $data_perusahaan = Perusahaan::all();
         $customer = Customer::find($id);
         return view('customer/edit', [
             'customer' => $customer,
+            'data_perusahaan' => $data_perusahaan,
             'title' => 'Edit Customer'
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        // $this->validate(
-        //     $request,
-        //     [
-        //         'nama_pt' => 'required|min:5',
-        //         'nama_agent' => 'required|min:5',
-        //         'alamat' => 'required',
-        //         'kota' => 'required',
-        //         'email' => 'required',
-        //         'no_telp' => 'required',
-        //     ],
-        //     [
-        //         'nama_pt.required' => 'Nama Perusahaan harus diisi !',
-        //         'nama_pt.min' => 'Nama Perushaan minimal 5 karakter !',
-        //         'nama_agent.required' => 'Nama Agent harus diisi !',
-        //         'nama_agent.min' => 'Nama Agent minimal 5 karakter !',
-        //         'alamat.required' => 'Alamat harus diisi !',
-        //         'kota.required' => 'Kota harus diisi !',
-        //         'email.required' => 'Email harus diisi!',
-        //         'no_telp.required' => 'No Telepon harus diisi !'
-        //     ]
-
-        // );
+        $this->validate(
+            $request,
+            [   
+                'nama_agent' => 'required|min:4',
+                'email_agent' => 'required|email',
+                'no_telp_agent' => 'required|min:11',
+            ],
+            [
+                'nama_agent.required' => 'Nama Agent harus diisi !',
+                'nama_agent.min' => 'Nama Agent minimal 4 karakter !',
+                'email_agent.required' => 'Email harus diisi!',
+                'no_telp_agent.min' => 'No telepon minimal 11 angka !',
+                'no_telp_agent.required' => 'No Telepon harus diisi !'
+            ]
+        );
 
         $customer = Customer::find($id);
         $customer->update($request->all());

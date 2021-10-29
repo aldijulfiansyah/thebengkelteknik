@@ -10,7 +10,7 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h2>Data Barang</h2>
-                                @livewire('select')
+                                {{-- @livewire('select') --}}
                                 <div class="right">
                                       <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                           <i class="lnr lnr-plus-circle"></i>
@@ -120,8 +120,8 @@
                   <label for="" class="form-label">Perusahaan</label>  
                   <select class="form-control" style="width: 100%;" name="perusahaan_id" id="perusahaan_id" required>
                       <option value="">- Pilih Perusahaan -</option>
-                      @foreach ($data_perusahaan as $item) 
-                      <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
+                      @foreach ($data_perusahaan as $items) 
+                      <option value="{{ $items->id }}">{{ $items->nama_pt }}</option>
                       @endforeach
                   </select>
                 </div>
@@ -130,9 +130,9 @@
                 <label for="" class="form-label">Customer</label>  
                   <select class="form-control" placeholder="pilih customer" style="width: 100%;" name="customer_id" id="customer_id">
                     
-                    @foreach ($data_customer as $item) 
+                    {{-- @foreach ($data_customer as $item) 
                     <option value="{{ $item->id }}" >{{ $item->nama_agent }}</option>
-                    @endforeach
+                    @endforeach --}}
                   </select>
                 </div>
               
@@ -225,34 +225,35 @@ $('.delete').click(function(){
 
 });
 
-// $(document).ready(function() {
-//             $('#perusahaan_id').on('change', function() {
-//                 var getPtId = $(this).val();
-//                 if(getPtId) {
-//                     $.ajax({
-//                         url: '/GetCustomer/'+getPtId,
-//                         type: "GET",
-//                         data : {"_token":"{{ csrf_token() }}"},
-//                         dataType: "json",
-//                         success:function(data) {
-//                             //console.log(data);
-//                           if(data){
-//                             $('#customer_id').empty();
-//                             $('#customer_id').focus;
-//                             $('#customer_id').append('<option value="">-- Pilih Customer --</option>'); 
-//                             $.each(data, function(key, value){
-//                             $('select[name="customer_id"]').append('<option value="'+ key +'">' + value.nama_agent+ '</option>');
-//                         });
-//                       }else{
-//                         $('#customer_id').empty();
-//                       }
-//                       }
-//                     });
-//                 }else{
-//                   $('#customer_id').empty();
-//                 }
-//             });
-//         });
+$(document).ready(function() {
+            $('#perusahaan_id').on('change', function() {
+                var getPtId = $(this).val();
+                if(getPtId) {
+                    $.ajax({
+                        url: '/GetCustomer/'+getPtId,
+                        type: "GET",
+                        data : {"_token":"{{ csrf_token() }}"},
+                        dataType: "json",
+                        success:function(data) {
+                            //console.log(data);
+                          if(data){
+                            $('#customer_id').empty();
+                            $('#customer_id').focus;
+                            $('#customer_id').append('<option value="">-- Pilih Customer --</option>'); 
+                            $.each(data, function(key, value){
+                            $('select[name="customer_id"]').append('<option value="'+ value.id +'">' + value.nama_agent+ '</option> ');
+                            // $('select[name="customer_id"]').append('@foreach ($data_customer as $item) <option value="{{ $item->id }}" >{{ $item->nama_agent }}</option> @endforeach');
+                        });
+                      }else{
+                        $('#customer_id').empty();
+                      }
+                      }
+                    });
+                }else{
+                  $('#customer_id').empty();
+                }
+            });
+        });
 
 
 
@@ -278,18 +279,18 @@ $('.delete').click(function(){
 // $(document).ready(function () {
 //                 $('#perusahaan').on('change', function () {
 //                 let id = $(this).val();
-//                 $('#customer').empty();
-//                 $('#customer').append(`<option value="0" disabled selected>Processing...</option>`);
+//                 $('#customer_id').empty();
+//                 $('#customer_id').append(`<option value="0" disabled selected>Processing...</option>`);
 //                 $.ajax({
 //                 type: 'GET',
 //                 url: "{{url('')}}/GetCustomer/" + id,
 //                 success: function (response) {
 //                 var response = JSON.parse(response);
 //                 console.log(response);   
-//                 $('#customer').empty();
-//                 $('#customer').append(`<option value="0" disabled selected>Select Customer*</option>`);
+//                 $('#customer_id').empty();
+//                 $('#customer_id').append(`<option value="0" disabled selected>Select Customer*</option>`);
 //                 response.forEach(element => {
-//                     $('#customer').append(`<option value="${element['customer_id']}">${element['nama_agent']}</option>`);
+//                     $('#customer_id').append(`<option value="${element['customer_id']}">${element['nama_agent']}</option>`);
 //                     });
 //                 }
 //             });

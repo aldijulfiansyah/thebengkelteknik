@@ -26,7 +26,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('admin/assets/img/favicon.png')}}">
 	
-
+{{-- Loader --}}
 	<style>
 		.loader {
 	
@@ -65,9 +65,6 @@
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
-	<!-- Javascript -->
-	
-   <!-- jQuery -->
 	
     <!-- DataTables -->
 	<script src="{{ asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
@@ -84,6 +81,8 @@
 	<script src="/vendor/ijabocrop/ijaboCropTool.min.js"></script>
 	<script src="/vendor/dark/dark.js"></script>
 	{{-- <script src="/vendor/imgbutton/imgbutton.js"></script> --}}
+	
+	{{-- Loader JS --}}
 	<script>
 		$(function(){
 			setTimeout(()=>{

@@ -41,14 +41,14 @@
                             @enderror
                             <div class="form-group">
                               <label for="" class="form-label">Perusahaan</label>
-                              <input name="client_pt" type="text" class="form-control @error('client_pt') is-invalid @enderror" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt',$barang->client_pt) }}">
+                              <input name="client_pt" type="text" class="form-control @error('client_pt') is-invalid @enderror" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ old('client_pt',$barang->perusahaan->nama_pt) }}" disabled>
                             </div>
                             @error('client_pt')
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                               <label for="" class="form-label">Agent</label>
-                              <input name="nama_client" type="text" class="form-control @error('nama_client') is-invalid @enderror" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('nama_client',$barang->nama_client) }}">
+                              <input name="nama_client" type="text" class="form-control @error('nama_client') is-invalid @enderror" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ old ('nama_client',$barang->customer->nama_agent) }}" disabled>
                             </div>
                             @error('nama_client')
                               <div class="alert alert-danger">{{ $message }}</div>
@@ -86,7 +86,7 @@
 
 
 
-
+{{-- 
 
 @section('content1')
 
@@ -110,11 +110,11 @@
                 </div>
                 <div class="form-group">
                   <label for="" class="form-label">Perusahaan</label>
-                  <input name="client_pt" type="text" class="form-control" id="client_pt" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ $barang->client_pt }}">
+                  <input name="perusahaan_id" type="text" class="form-control" id="perusahaan_id" aria-describedby="textHelp" placeholder="Masukan Nama Perusahaan" value="{{ $barang->perusahaan-> }}" disabled>
                 </div>
                 <div class="form-group">
                   <label for="" class="form-label">Agent</label>
-                  <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ $barang->nama_client }}">
+                  <input name="nama_client" type="text" class="form-control" id="nama_client" aria-describedby="textHelp" placeholder="Masukan Nama Agent" value="{{ $barang->nama_client }}" disabled>
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
@@ -122,5 +122,5 @@
     </div>
     
     
-    @endsection
+    @endsection --}}
 
