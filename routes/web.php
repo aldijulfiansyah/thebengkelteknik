@@ -10,10 +10,14 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HomeUserController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PenjualanController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PerusahaanController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +44,7 @@ use App\Http\Controllers\PerusahaanController;
 
 // -------------------dashboard admin-------------------------------------
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
+
 
 
 
@@ -95,6 +100,9 @@ Route::post('/user/create', [UserController::class, 'create']);
 Route::get('/user/{id}/edit', [UserController::class, 'edit']);
 Route::post('/user/{id}/update', [UserController::class, 'update']);
 Route::get('/user/{id}/delete', [UserController::class, 'delete']);
+
+Route::get('/pengumuman', [KaryawanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan User']);
+Route::post('/pengumuman/create', [HomeController::class, 'create']);
 
 
 // ------------------login management------------------------------------

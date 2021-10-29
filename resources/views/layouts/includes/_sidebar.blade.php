@@ -4,8 +4,9 @@
             <br>
             <br>
             <ul class="nav">
-
+                @if (auth()->user()->role == "Karyawan Admin")
                 <li><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                @endif
                 @if (auth()->user()->role == "Karyawan Admin")
                 <li><a class="nav-link {{ Request::is('perusahaan') ? 'active' : '' }}" aria-current="page" href="/perusahaan"><i class="lnr lnr-user"></i> <span>Perusahaan</span></a></li>
                 @endif
@@ -25,6 +26,17 @@
                 <li><a class="nav-link {{ Request::is('user') ? 'active' : '' }}" aria-current="page" href="/user"><i class="lnr lnr-user"></i> <span>User</span></a></li>
                 @endif
                 
+
+                @if (auth()->user()->role == "Karyawan User")
+                <li><a class="nav-link {{ Request::is('userhome') ? 'active' : '' }}" aria-current="page" href="/userhome"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                @endif
+                @if (auth()->user()->role == "Karyawan User")
+                <li><a class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}" aria-current="page" href="/pengumuman"><i class="lnr lnr-home"></i> <span>Pengumuman</span></a></li>
+                @endif
+                @if (auth()->user()->role == "Karyawan User")
+                <li><a class="nav-link {{ Request::is('work') ? 'active' : '' }}" aria-current="page" href="/work"><i class="lnr lnr-home"></i> <span>Work</span></a></li>
+                @endif
+
 
                 
 

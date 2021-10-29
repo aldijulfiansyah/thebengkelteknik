@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,11 +42,14 @@ class LoginController extends Controller
     }
 
     public function index_user()
-    {
+    {$eco = null;
+     $data_user = User::find(Auth::user());
         
         return view('userhome', [
             'title' => 'User Home',
-            'active' => 'login',
+            'active' => 'userhome',
+            'data_user' => $data_user,
+            'eco'=> $eco
         ]);
     }
 

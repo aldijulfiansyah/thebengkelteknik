@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
-
-class HomeController extends Controller
+class KaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,30 +13,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $eco = null;
-        $data_user = User::find(Auth::user());
-        $banyak = DB::table('laporan')->sum('pemasukan');
-        $banyaks = DB::table('laporan')->sum('pengeluaran');
-        $lap = DB::table('laporan')->count();
-        $penj = DB::table('penjualan')->count();
-        $bar = DB::table('barang')->count();
-        $user = DB::table('users')->count();
-        $pengu = Pengumuman::all();
-
-        return view('welcome',[
-            'lap' => $lap,
-            'penj' => $penj,
-            'bar' => $bar,
-            'user' => $user,
-            'title' => 'Home',
-            'banyak' => $banyak,
-            'banyaks' => $banyaks,
-            'data_user' => $data_user,
-            'eco'=> $eco,
-            'pengu' => $pengu
-        ]);
-
-        
+    {
+        return view('karyawan.pengumuman',[
+            'title' => 'Pengumuman'
+    ]);
     }
 
     /**
@@ -51,11 +26,7 @@ class HomeController extends Controller
      */
     public function create(Request $request)
     {
-        Pengumuman::create($request->all());
-
-        Alert::success('Ditambahkan', 'Pengumuman Berhasil Ditambahkan');
-
-        return redirect('/');
+        
     }
 
     /**
