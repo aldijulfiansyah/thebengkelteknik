@@ -72,7 +72,7 @@ Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::post('/barang/{id}/update', [BarangController::class, 'update']);
 Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
 // Route::get('/list_customer/{perusahaan_id}', [BarangController::class,'listCustomer']);
-Route::get('/GetCustomer/{id}', [BarangController::class,'GetCustomer']);
+Route::get('/GetCustomer/{id}', [BarangController::class, 'GetCustomer']);
 
 // ------------------penjualan management------------------------------------
 Route::get('/penjualan', [PenjualanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
@@ -81,6 +81,7 @@ Route::get('/penjualan/{id}/edit', [PenjualanController::class, 'edit']);
 Route::post('/penjualan/{id}/update', [PenjualanController::class, 'update']);
 Route::get('/penjualan/{id}/delete', [PenjualanController::class, 'delete']);
 Route::get('/penjualan/{id}/invoice', [PenjualanController::class, 'invoice']);
+Route::get('/penjualan/{id}/printpdf', [PenjualanController::class, 'print']);
 
 // ------------------laporan management------------------------------------
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan Admin']);
