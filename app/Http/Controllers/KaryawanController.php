@@ -14,8 +14,10 @@ class KaryawanController extends Controller
      */
     public function index()
     {
+        $data_karyawan = Pengumuman::all();
         return view('karyawan.pengumuman',[
-            'title' => 'Pengumuman'
+            'title' => 'Pengumuman',
+            'data_karyawan' => $data_karyawan
     ]);
     }
 

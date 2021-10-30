@@ -132,47 +132,49 @@
                             @endif
                             <br>
                             <br>
-                            <div class="col-md-4">
-                                <p>
-                                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted"data-toggle="modal" data-target="#pengumumanmodal" ><i class="fa fa-paper-plane-o"></i> &nbsp; &nbsp; Buat Pengumuman</a></span>
-                                    
-                                </p> &nbsp; &nbsp; &nbsp; &nbsp;
-                                <p class="panel-subtitle">@php
-                                    $date = date('Y-m-d');
-                                @endphp Tanggal : {{ $date }}</p>
-                        </div>
-                            <table class="table table-hover" id="pengu">
-                                <thead>
-                                    <tr>
-                                      <th>No</th>
-                                      <th scope="col">Isi Pengumuman</th>
-                                      <th scope="col">Dibuat</th>
-                                      <th scope="col">Do</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  @foreach ($pengu as $pengumuman)
-                                    <tr>
-                                        <td scope="row">{{$loop->iteration}}</td>
-                                        <td scope="row">{{ $pengumuman->isi }}</td>
-                                        <td scope="row">{{ $pengumuman->created_at }}</td>
-                                        <td scope="row">
-                                          
-                                          <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $pengumuman->id }}" ><i class="fa fa-trash-o"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
                     </div>
-                    
-                    
                 </div>
+            </div>
+            <div class="col-md-12">
+                <p>
+                    <span class="link" style="float:left"><a name="" id="" class="btn btn-primary btn-sm inverted"data-toggle="modal" data-target="#pengumumanmodal" ><i class="fa fa-paper-plane-o"></i> &nbsp; &nbsp; Buat Pengumuman</a></span>
+                    
+                </p> &nbsp; &nbsp; &nbsp; &nbsp;
+                <p class="panel-subtitle">@php
+                    $date = date('Y-m-d');
+                @endphp Tanggal : {{ $date }}</p>
+            <table class="table table-hover" id="pengu">
+                <thead>
+                    <tr>
+                      <th>No</th>
+                      {{-- <th scope="col">Tgl Pengumuman</th>
+                      <th scope="col">Keterangan</th> --}}
+                      <th scope="col">Isi Pengumuman</th>
+                      <th scope="col">Dibuat</th>
+                      <th scope="col">Do</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  @foreach ($pengu as $pengumuman)
+                    <tr>
+                        <td scope="row">{{$loop->iteration}}</td>
+                        <td scope="row">{{ $pengumuman->isi }}</td>
+                        <td scope="row">{{ $pengumuman->created_at }}</td>
+                        <td scope="row">
+                          
+                          <a href="#" class="btn btn-danger btn-sm delete inverted" data-id="{{ $pengumuman->id }}" ><i class="fa fa-trash-o"></i> Delete</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            </div>
+
+            <h3>Subagio Teknik Location</h3>
+            <iframe src="https://my.atlistmaps.com/map/d7e0ddec-4b5a-4363-b7a4-535e41ac2697?share=true" allow="geolocation" width="100%" height="600px" frameborder="0" scrolling="no" allowfullscreen></iframe>    
                 
 
-                <h3>Subagio Teknik Location</h3>
-                            <iframe src="https://my.atlistmaps.com/map/d7e0ddec-4b5a-4363-b7a4-535e41ac2697?share=true" allow="geolocation" width="100%" height="600px" frameborder="0" scrolling="no" allowfullscreen></iframe>    
             </div>
             
 
