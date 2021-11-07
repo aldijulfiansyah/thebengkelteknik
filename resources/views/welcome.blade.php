@@ -225,7 +225,7 @@ $('.delete').click(function(){
 })
 .then((willDelete) => {
   if (willDelete) {
-    window.location = "/perusahaan/"+penguid+"/delete"
+    window.location = "/pengumuman/"+penguid+"/delete"
     swal("Data  berhasil dihapus", {
       icon: "success",
     });
@@ -238,3 +238,5 @@ $('.delete').click(function(){
 
 
 </script>
+
+@endpush

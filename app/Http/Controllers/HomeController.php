@@ -109,8 +109,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $pengumuman = Pengumuman::find($id);
+        $pengumuman->delete();
+        Alert::success('Dihapus', 'Data Berhasil Dihapus');
+        return redirect('/');
     }
 }

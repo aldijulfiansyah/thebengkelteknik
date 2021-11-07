@@ -104,6 +104,7 @@ Route::get('/user/{id}/delete', [UserController::class, 'delete']);
 
 Route::get('/pengumuman', [KaryawanController::class, 'index'])->middleware(['auth', 'cekrole:Karyawan User']);
 Route::post('/pengumuman/create', [HomeController::class, 'create']);
+Route::get('/pengumuman/{id}/delete', [HomeController::class, 'delete']);
 
 
 // ------------------login management------------------------------------

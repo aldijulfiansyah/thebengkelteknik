@@ -33,9 +33,6 @@
                 @if (auth()->user()->role == "Karyawan User")
                 <li><a class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}" aria-current="page" href="/pengumuman"><i class="lnr lnr-home"></i> <span>Pengumuman</span></a></li>
                 @endif
-                @if (auth()->user()->role == "Karyawan User")
-                <li><a class="nav-link {{ Request::is('work') ? 'active' : '' }}" aria-current="page" href="/work"><i class="lnr lnr-home"></i> <span>Work</span></a></li>
-                @endif
 
 
                 
