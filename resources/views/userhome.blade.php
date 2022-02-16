@@ -26,7 +26,7 @@
                     @endphp Tanggal : {{ $date }}</p>
                     <br>
                     <h3 class="panel-title">Subagio Teknik Location</h3>
-                    <iframe src="https://my.atlistmaps.com/map/d7e0ddec-4b5a-4363-b7a4-535e41ac2697?share=true" allow="geolocation" width="100%" height="600px" frameborder="0" scrolling="no" allowfullscreen></iframe>                </div>
+                    <iframe src="https://my.atlistmaps.com/map/45ae1925-bc10-48f7-b430-02570768a715?share=true" allow="geolocation" width="100%" height="700px" frameborder="0" scrolling="no" allowfullscreen></iframe>                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3">
