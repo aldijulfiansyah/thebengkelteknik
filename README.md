@@ -31,3 +31,4 @@ https://thebengkelteknikapp.000webhostapp.com/
 ## Language
 
 - [Laravel 8.x](https://laravel.com/) 
+- MySql Database
