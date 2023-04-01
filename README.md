@@ -26,7 +26,7 @@ https://thebengkelteknikapp.000webhostapp.com/
 - Nouval A S
 
 ## Project Leader
-- Dea Afrizal
+- 
 
 ## Language
 
