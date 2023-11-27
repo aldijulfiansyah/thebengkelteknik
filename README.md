@@ -1,7 +1,7 @@
 # About This Project
 
 
-#### Project ini dibuat untuk memenuhi kebutuhan ___CV Subagio Teknik___ dalam pengelolaan data barang dan keuangan.
+#### 
 
 <hr>
 
